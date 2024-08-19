@@ -13,12 +13,14 @@ class ContactsListView extends StatelessWidget {
         title: const Text(contactsTitle),
         actions: [IconButton(onPressed: _onAddPressed, icon: const Icon(Icons.add))],
       ),
-      body: BlocProvider<ContactsListBloc>(
-        create: (context) => ContactsListBloc(),
-        child: BlocBuilder<ContactsListBloc, ContactsListState>(
-          builder: (context, state) {
-            return const Placeholder();
-          },
+      body: BlocBuilder<ContactsListBloc, ContactsListState>(
+        builder: (context, state) => state.when(
+          (contacts) => ListView.builder(
+            itemBuilder: (context, index) => Text(contacts[index].firstName),
+            itemCount: contacts.length,
+          ),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          fetchError: () => const Center(child: Text(errorMessage)),
         ),
       ),
     );

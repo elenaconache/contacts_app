@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ContactsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? fetch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Fetched value) fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetched value)? fetch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,18 +72,18 @@ class _$ContactsListEventCopyWithImpl<$Res, $Val extends ContactsListEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$FetchedImplCopyWith<$Res> {
+  factory _$$FetchedImplCopyWith(
+          _$FetchedImpl value, $Res Function(_$FetchedImpl) then) =
+      __$$FetchedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ContactsListEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$FetchedImplCopyWithImpl<$Res>
+    extends _$ContactsListEventCopyWithImpl<$Res, _$FetchedImpl>
+    implements _$$FetchedImplCopyWith<$Res> {
+  __$$FetchedImplCopyWithImpl(
+      _$FetchedImpl _value, $Res Function(_$FetchedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ContactsListEvent
@@ -92,18 +92,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$FetchedImpl implements _Fetched {
+  const _$FetchedImpl();
 
   @override
   String toString() {
-    return 'ContactsListEvent.started()';
+    return 'ContactsListEvent.fetch()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$FetchedImpl);
   }
 
   @override
@@ -112,27 +112,27 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() fetch,
   }) {
-    return started();
+    return fetch();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? fetch,
   }) {
-    return started?.call();
+    return fetch?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? fetch,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (fetch != null) {
+      return fetch();
     }
     return orElse();
   }
@@ -140,67 +140,79 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Fetched value) fetch,
   }) {
-    return started(this);
+    return fetch(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetched value)? fetch,
   }) {
-    return started?.call(this);
+    return fetch?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetch,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (fetch != null) {
+      return fetch(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements ContactsListEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class _Fetched implements ContactsListEvent {
+  const factory _Fetched() = _$FetchedImpl;
 }
 
 /// @nodoc
 mixin _$ContactsListState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Contact> contacts) $default, {
+    required TResult Function() loading,
+    required TResult Function() fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<Contact> contacts)? $default, {
+    TResult? Function()? loading,
+    TResult? Function()? fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Contact> contacts)? $default, {
+    TResult Function()? loading,
+    TResult Function()? fetchError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+  TResult map<TResult extends Object?>(
+    TResult Function(_ContactsListState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchError value) fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ContactsListState value)? $default, {
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchError value)? fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ContactsListState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -228,18 +240,173 @@ class _$ContactsListStateCopyWithImpl<$Res, $Val extends ContactsListState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$ContactsListStateImplCopyWith<$Res> {
+  factory _$$ContactsListStateImplCopyWith(_$ContactsListStateImpl value,
+          $Res Function(_$ContactsListStateImpl) then) =
+      __$$ContactsListStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Contact> contacts});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ContactsListStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$ContactsListStateImplCopyWithImpl<$Res>
+    extends _$ContactsListStateCopyWithImpl<$Res, _$ContactsListStateImpl>
+    implements _$$ContactsListStateImplCopyWith<$Res> {
+  __$$ContactsListStateImplCopyWithImpl(_$ContactsListStateImpl _value,
+      $Res Function(_$ContactsListStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactsListState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contacts = null,
+  }) {
+    return _then(_$ContactsListStateImpl(
+      contacts: null == contacts
+          ? _value._contacts
+          : contacts // ignore: cast_nullable_to_non_nullable
+              as List<Contact>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ContactsListStateImpl implements _ContactsListState {
+  const _$ContactsListStateImpl({required final List<Contact> contacts})
+      : _contacts = contacts;
+
+  final List<Contact> _contacts;
+  @override
+  List<Contact> get contacts {
+    if (_contacts is EqualUnmodifiableListView) return _contacts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_contacts);
+  }
+
+  @override
+  String toString() {
+    return 'ContactsListState(contacts: $contacts)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ContactsListStateImpl &&
+            const DeepCollectionEquality().equals(other._contacts, _contacts));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_contacts));
+
+  /// Create a copy of ContactsListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ContactsListStateImplCopyWith<_$ContactsListStateImpl> get copyWith =>
+      __$$ContactsListStateImplCopyWithImpl<_$ContactsListStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Contact> contacts) $default, {
+    required TResult Function() loading,
+    required TResult Function() fetchError,
+  }) {
+    return $default(contacts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<Contact> contacts)? $default, {
+    TResult? Function()? loading,
+    TResult? Function()? fetchError,
+  }) {
+    return $default?.call(contacts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Contact> contacts)? $default, {
+    TResult Function()? loading,
+    TResult Function()? fetchError,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(contacts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ContactsListState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchError value) fetchError,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ContactsListState value)? $default, {
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchError value)? fetchError,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ContactsListState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchError value)? fetchError,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContactsListState implements ContactsListState {
+  const factory _ContactsListState({required final List<Contact> contacts}) =
+      _$ContactsListStateImpl;
+
+  List<Contact> get contacts;
+
+  /// Create a copy of ContactsListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ContactsListStateImplCopyWith<_$ContactsListStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$ContactsListStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ContactsListState
@@ -248,18 +415,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'ContactsListState.initial()';
+    return 'ContactsListState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -267,61 +434,184 @@ class _$InitialImpl implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Contact> contacts) $default, {
+    required TResult Function() loading,
+    required TResult Function() fetchError,
   }) {
-    return initial();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<Contact> contacts)? $default, {
+    TResult? Function()? loading,
+    TResult? Function()? fetchError,
   }) {
-    return initial?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Contact> contacts)? $default, {
+    TResult Function()? loading,
+    TResult Function()? fetchError,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+  TResult map<TResult extends Object?>(
+    TResult Function(_ContactsListState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchError value) fetchError,
   }) {
-    return initial(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ContactsListState value)? $default, {
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchError value)? fetchError,
   }) {
-    return initial?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ContactsListState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements ContactsListState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Loading implements ContactsListState {
+  const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$FetchErrorImplCopyWith<$Res> {
+  factory _$$FetchErrorImplCopyWith(
+          _$FetchErrorImpl value, $Res Function(_$FetchErrorImpl) then) =
+      __$$FetchErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchErrorImplCopyWithImpl<$Res>
+    extends _$ContactsListStateCopyWithImpl<$Res, _$FetchErrorImpl>
+    implements _$$FetchErrorImplCopyWith<$Res> {
+  __$$FetchErrorImplCopyWithImpl(
+      _$FetchErrorImpl _value, $Res Function(_$FetchErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactsListState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FetchErrorImpl implements _FetchError {
+  const _$FetchErrorImpl();
+
+  @override
+  String toString() {
+    return 'ContactsListState.fetchError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Contact> contacts) $default, {
+    required TResult Function() loading,
+    required TResult Function() fetchError,
+  }) {
+    return fetchError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<Contact> contacts)? $default, {
+    TResult? Function()? loading,
+    TResult? Function()? fetchError,
+  }) {
+    return fetchError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Contact> contacts)? $default, {
+    TResult Function()? loading,
+    TResult Function()? fetchError,
+    required TResult orElse(),
+  }) {
+    if (fetchError != null) {
+      return fetchError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ContactsListState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_FetchError value) fetchError,
+  }) {
+    return fetchError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ContactsListState value)? $default, {
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_FetchError value)? fetchError,
+  }) {
+    return fetchError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ContactsListState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_FetchError value)? fetchError,
+    required TResult orElse(),
+  }) {
+    if (fetchError != null) {
+      return fetchError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchError implements ContactsListState {
+  const factory _FetchError() = _$FetchErrorImpl;
 }

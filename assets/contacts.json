@@ -1,0 +1,112 @@
+[
+  {
+    "contactID": "1d4d3e6c-a5f9-4b93-b8b7-14c1f3f98491",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "555-123-4567",
+    "streetAddress1": "123 Main St",
+    "streetAddress2": "Apt 4B",
+    "city": "Springfield",
+    "state": "IL",
+    "zipCode": "62704"
+  },
+  {
+    "contactID": "2c5f3b4a-b6d8-49a5-a3f1-2f9b3c58e5c2",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "phoneNumber": "555-987-6543",
+    "streetAddress1": "456 Elm St",
+    "streetAddress2": "",
+    "city": "Columbus",
+    "state": "OH",
+    "zipCode": "43215"
+  },
+  {
+    "contactID": "3d6a7f2b-c7a9-4e32-8f84-32a0d2b7e6d3",
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "phoneNumber": "555-765-4321",
+    "streetAddress1": "789 Oak St",
+    "streetAddress2": "Suite 500",
+    "city": "Austin",
+    "state": "TX",
+    "zipCode": "78701"
+  },
+  {
+    "contactID": "4e7b8d1c-d8ba-4a3e-9f95-43b2f3c9d7e4",
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "phoneNumber": "555-321-0987",
+    "streetAddress1": "321 Maple Ave",
+    "streetAddress2": "Unit 2A",
+    "city": "Seattle",
+    "state": "WA",
+    "zipCode": "98101"
+  },
+  {
+    "contactID": "5f8c9a2d-e9cb-4b4f-af06-54c3f4d8e8f5",
+    "firstName": "David",
+    "lastName": "Brown",
+    "phoneNumber": "555-432-1098",
+    "streetAddress1": "654 Pine St",
+    "streetAddress2": "",
+    "city": "Denver",
+    "state": "CO",
+    "zipCode": "80202"
+  },
+  {
+    "contactID": "6g9d1e3f-fad2-4c5e-bf17-65d4f5e9f9f6",
+    "firstName": "Sarah",
+    "lastName": "Miller",
+    "phoneNumber": "555-210-9876",
+    "streetAddress1": "987 Cedar St",
+    "streetAddress2": "Floor 3",
+    "city": "Boston",
+    "state": "MA",
+    "zipCode": "02110"
+  },
+  {
+    "contactID": "7h0e2f4a-gbe3-4d6f-cg28-76e5g6fa0g07",
+    "firstName": "James",
+    "lastName": "Wilson",
+    "phoneNumber": "555-678-1234",
+    "streetAddress1": "123 Birch St",
+    "streetAddress2": "",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zipCode": "85001"
+  },
+  {
+    "contactID": "8i1f3g5b-hcf4-4e7g-dh39-87f6h7gb1h18",
+    "firstName": "Olivia",
+    "lastName": "Martinez",
+    "phoneNumber": "555-890-6543",
+    "streetAddress1": "456 Walnut St",
+    "streetAddress2": "Apt 8C",
+    "city": "Miami",
+    "state": "FL",
+    "zipCode": "33101"
+  },
+  {
+    "contactID": "9j2g4h6c-idg5-4f8h-ei40-98g7i8hc2i29",
+    "firstName": "Daniel",
+    "lastName": "Garcia",
+    "phoneNumber": "555-345-6789",
+    "streetAddress1": "789 Chestnut St",
+    "streetAddress2": "Suite 700",
+    "city": "Chicago",
+    "state": "IL",
+    "zipCode": "60601"
+  },
+  {
+    "contactID": "0k3h5i7d-jeh6-4g9i-fj51-a9h8j9id3j30",
+    "firstName": "Sophia",
+    "lastName": "Lopez",
+    "phoneNumber": "555-567-8901",
+    "streetAddress1": "321 Spruce St",
+    "streetAddress2": "",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90001"
+  }
+]

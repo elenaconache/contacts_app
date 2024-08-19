@@ -1,7 +1,9 @@
+import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/config/route_config.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 
