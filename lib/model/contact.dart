@@ -1,3 +1,4 @@
+import 'package:contacts_app/entity/contact_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'contact.freezed.dart';
@@ -23,4 +24,16 @@ class Contact with _$Contact {
   factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);
 
   String get fullName => '$firstName $lastName';
+
+  ContactEntity get entity => ContactEntity(
+        contactId: contactId,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        city: city,
+        state: state,
+        streetAddress1: streetAddress1,
+        streetAddress2: streetAddress2,
+        zipCode: zipCode,
+      );
 }

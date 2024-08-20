@@ -1,22 +1,31 @@
 import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/config/route_config.dart';
 import 'package:contacts_app/datasource/assets_helper.dart';
+import 'package:contacts_app/datasource/database_helper.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  configureDependencies();
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
+
+  final contactsRepository = ContactsRepository(
+    assetsHelper: getIt<AssetsHelper>(),
+    databaseHelper: getIt<DatabaseHelper>(),
+  );
+  runApp(ContactsApp(contactsRepository: contactsRepository));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ContactsApp extends StatelessWidget {
+  final ContactsRepository contactsRepository;
+
+  const ContactsApp({super.key, required this.contactsRepository});
 
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (_) => ContactsRepository(assetsHelper: getIt<AssetsHelper>()),
+      create: (_) => contactsRepository,
       child: MaterialApp.router(
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

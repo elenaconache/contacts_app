@@ -26,10 +26,10 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
 
   Future<void> _onContactsListRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
     await Future.delayed(const Duration(milliseconds: 600));
-    await _contactsRepository
-        .getInitialContacts(path: 'assets/contacts.json')
-        .then((contacts) => emit(ContactsListState.fetched(contacts)))
-        .catchError((error, stackTrace) {
+    await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) {
+      _contactsRepository.saveContacts(contacts: contacts);
+      emit(ContactsListState.fetched(contacts));
+    }).catchError((error, stackTrace) {
       getIt<LogService>().exception(error: error, stackTrace: stackTrace);
       emit(const ContactsListState.fetchError());
     });

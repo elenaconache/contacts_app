@@ -5,8 +5,7 @@ import 'package:logger/logger.dart';
 class LogService {
   final Logger _logger;
 
-  @factoryMethod
-  LogService.from(this._logger);
+  LogService(this._logger);
 
   void exception({required dynamic error, required StackTrace stackTrace}) =>
       _logger.e('Exception', stackTrace: stackTrace, error: error);
