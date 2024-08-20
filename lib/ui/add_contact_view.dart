@@ -1,3 +1,4 @@
+import 'package:contacts_app/ui/contact_form.dart';
 import 'package:contacts_app/ui/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class AddContactView extends StatelessWidget {
       appBar: AppBar(
         title: const Text(createContactTitle),
       ),
+      body: const ContactForm(),
     );
   }
 }
