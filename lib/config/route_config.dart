@@ -1,7 +1,9 @@
 import 'package:contacts_app/blocs/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
-import 'package:contacts_app/ui/contacts_list_view.dart';
-import 'package:flutter/material.dart';
+import 'package:contacts_app/ui/add_contact_view.dart';
+import 'package:contacts_app/ui/contact_details_view.dart';
+import 'package:contacts_app/ui/contacts_list/contacts_list_view.dart';
+import 'package:contacts_app/ui/edit_contact_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,6 +11,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.contacts.path,
+      name: Routes.contacts.name,
       builder: (_, __) => BlocProvider<ContactsListBloc>(
         create: (context) => ContactsListBloc()..add(const ContactsListEvent.fetch()),
         child: const ContactsListView(),
@@ -16,17 +19,20 @@ final router = GoRouter(
       routes: [
         GoRoute(
           path: Routes.contactDetails.path,
-          builder: (_, __) => const Placeholder(),
+          name: Routes.contactDetails.name,
+          builder: (_, __) => const ContactDetailsView(),
           routes: [
             GoRoute(
               path: Routes.editContact.path,
-              builder: (_, __) => const Placeholder(),
+              name: Routes.editContact.name,
+              builder: (_, __) => const EditContactView(),
             ),
           ],
         ),
         GoRoute(
           path: Routes.addContact.path,
-          builder: (_, __) => const Placeholder(),
+          name: Routes.addContact.name,
+          builder: (_, __) => const AddContactView(),
         )
       ],
     )

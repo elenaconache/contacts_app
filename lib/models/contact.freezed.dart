@@ -208,7 +208,7 @@ class __$$ContactImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ContactImpl implements _Contact {
+class _$ContactImpl extends _Contact {
   const _$ContactImpl(
       {@JsonKey(name: 'contactID') required this.contactId,
       required this.firstName,
@@ -218,7 +218,8 @@ class _$ContactImpl implements _Contact {
       required this.streetAddress2,
       required this.city,
       required this.state,
-      required this.zipCode});
+      required this.zipCode})
+      : super._();
 
   factory _$ContactImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContactImplFromJson(json);
@@ -291,7 +292,7 @@ class _$ContactImpl implements _Contact {
   }
 }
 
-abstract class _Contact implements Contact {
+abstract class _Contact extends Contact {
   const factory _Contact(
       {@JsonKey(name: 'contactID') required final String contactId,
       required final String firstName,
@@ -302,6 +303,7 @@ abstract class _Contact implements Contact {
       required final String city,
       required final String state,
       required final String zipCode}) = _$ContactImpl;
+  const _Contact._() : super._();
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$ContactImpl.fromJson;
 

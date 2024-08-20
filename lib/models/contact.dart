@@ -6,6 +6,8 @@ part 'contact.g.dart';
 
 @freezed
 class Contact with _$Contact {
+  const Contact._();
+
   const factory Contact({
     @JsonKey(name: 'contactID') required String contactId,
     required String firstName,
@@ -19,4 +21,6 @@ class Contact with _$Contact {
   }) = _Contact;
 
   factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);
+
+  String get fullName => '$firstName $lastName';
 }
