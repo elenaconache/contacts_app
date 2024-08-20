@@ -18,33 +18,34 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ContactsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() contactsListRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
+    TResult? Function()? contactsListRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? contactsListRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Fetched value) fetch,
+    required TResult Function(_ContactsListRequested value)
+        contactsListRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetched value)? fetch,
+    TResult? Function(_ContactsListRequested value)? contactsListRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetched value)? fetch,
+    TResult Function(_ContactsListRequested value)? contactsListRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,18 +73,19 @@ class _$ContactsListEventCopyWithImpl<$Res, $Val extends ContactsListEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchedImplCopyWith<$Res> {
-  factory _$$FetchedImplCopyWith(
-          _$FetchedImpl value, $Res Function(_$FetchedImpl) then) =
-      __$$FetchedImplCopyWithImpl<$Res>;
+abstract class _$$ContactsListRequestedImplCopyWith<$Res> {
+  factory _$$ContactsListRequestedImplCopyWith(
+          _$ContactsListRequestedImpl value,
+          $Res Function(_$ContactsListRequestedImpl) then) =
+      __$$ContactsListRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchedImplCopyWithImpl<$Res>
-    extends _$ContactsListEventCopyWithImpl<$Res, _$FetchedImpl>
-    implements _$$FetchedImplCopyWith<$Res> {
-  __$$FetchedImplCopyWithImpl(
-      _$FetchedImpl _value, $Res Function(_$FetchedImpl) _then)
+class __$$ContactsListRequestedImplCopyWithImpl<$Res>
+    extends _$ContactsListEventCopyWithImpl<$Res, _$ContactsListRequestedImpl>
+    implements _$$ContactsListRequestedImplCopyWith<$Res> {
+  __$$ContactsListRequestedImplCopyWithImpl(_$ContactsListRequestedImpl _value,
+      $Res Function(_$ContactsListRequestedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ContactsListEvent
@@ -92,18 +94,19 @@ class __$$FetchedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchedImpl implements _Fetched {
-  const _$FetchedImpl();
+class _$ContactsListRequestedImpl implements _ContactsListRequested {
+  const _$ContactsListRequestedImpl();
 
   @override
   String toString() {
-    return 'ContactsListEvent.fetch()';
+    return 'ContactsListEvent.contactsListRequested()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ContactsListRequestedImpl);
   }
 
   @override
@@ -112,27 +115,27 @@ class _$FetchedImpl implements _Fetched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() contactsListRequested,
   }) {
-    return fetch();
+    return contactsListRequested();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
+    TResult? Function()? contactsListRequested,
   }) {
-    return fetch?.call();
+    return contactsListRequested?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? contactsListRequested,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch();
+    if (contactsListRequested != null) {
+      return contactsListRequested();
     }
     return orElse();
   }
@@ -140,34 +143,35 @@ class _$FetchedImpl implements _Fetched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Fetched value) fetch,
+    required TResult Function(_ContactsListRequested value)
+        contactsListRequested,
   }) {
-    return fetch(this);
+    return contactsListRequested(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetched value)? fetch,
+    TResult? Function(_ContactsListRequested value)? contactsListRequested,
   }) {
-    return fetch?.call(this);
+    return contactsListRequested?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetched value)? fetch,
+    TResult Function(_ContactsListRequested value)? contactsListRequested,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch(this);
+    if (contactsListRequested != null) {
+      return contactsListRequested(this);
     }
     return orElse();
   }
 }
 
-abstract class _Fetched implements ContactsListEvent {
-  const factory _Fetched() = _$FetchedImpl;
+abstract class _ContactsListRequested implements ContactsListEvent {
+  const factory _ContactsListRequested() = _$ContactsListRequestedImpl;
 }
 
 /// @nodoc

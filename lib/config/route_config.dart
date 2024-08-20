@@ -1,5 +1,6 @@
-import 'package:contacts_app/blocs/contacts_list_bloc.dart';
+import 'package:contacts_app/bloc/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
+import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/ui/add_contact_view.dart';
 import 'package:contacts_app/ui/contact_details_view.dart';
 import 'package:contacts_app/ui/contacts_list/contacts_list_view.dart';
@@ -13,7 +14,9 @@ final router = GoRouter(
       path: Routes.contacts.path,
       name: Routes.contacts.name,
       builder: (_, __) => BlocProvider<ContactsListBloc>(
-        create: (context) => ContactsListBloc()..add(const ContactsListEvent.fetch()),
+        create: (context) => ContactsListBloc(
+          contactsRepository: context.read<ContactsRepository>(),
+        )..add(const ContactsListEvent.contactsListRequested()),
         child: const ContactsListView(),
       ),
       routes: [

@@ -1,5 +1,5 @@
 import 'package:contacts_app/config/routes.dart';
-import 'package:contacts_app/models/contact.dart';
+import 'package:contacts_app/model/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

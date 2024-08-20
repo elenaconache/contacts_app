@@ -1,16 +1,14 @@
 import 'package:contacts_app/config/injector.dart';
-import 'package:contacts_app/models/contact.dart';
-import 'package:contacts_app/service/assets_service.dart';
+import 'package:contacts_app/datasource/assets_helper.dart';
+import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/service/log_service.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton()
 class ContactsRepository {
-  final AssetsService _assetsService;
+  final AssetsHelper _assetsService;
 
-  ContactsRepository({required AssetsService assetsService}) : _assetsService = assetsService;
+  ContactsRepository({required AssetsHelper assetsHelper}) : _assetsService = assetsHelper;
 
-  Future<List<Contact>> getContacts({required String path}) async {
+  Future<List<Contact>> getInitialContacts({required String path}) async {
     final json = await _assetsService.parseListFromJson(path: path);
     final contacts = _parseContactsList(json);
     getIt<LogService>().debug('Contacts first names: ${contacts.map((contact) => contact.firstName)}');

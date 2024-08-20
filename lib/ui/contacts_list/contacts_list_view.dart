@@ -1,4 +1,4 @@
-import 'package:contacts_app/blocs/contacts_list_bloc.dart';
+import 'package:contacts_app/bloc/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/ui/contacts_list/contact_item.dart';
 import 'package:contacts_app/ui/strings.dart';
