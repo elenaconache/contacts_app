@@ -25,11 +25,11 @@ mixin _$Contact {
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
-  String get streetAddress1 => throw _privateConstructorUsedError;
-  String get streetAddress2 => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get state => throw _privateConstructorUsedError;
-  String get zipCode => throw _privateConstructorUsedError;
+  String? get streetAddress1 => throw _privateConstructorUsedError;
+  String? get streetAddress2 => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
+  String? get zipCode => throw _privateConstructorUsedError;
 
   /// Serializes this Contact to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,11 +50,11 @@ abstract class $ContactCopyWith<$Res> {
       String firstName,
       String lastName,
       String phoneNumber,
-      String streetAddress1,
-      String streetAddress2,
-      String city,
-      String state,
-      String zipCode});
+      String? streetAddress1,
+      String? streetAddress2,
+      String? city,
+      String? state,
+      String? zipCode});
 }
 
 /// @nodoc
@@ -76,11 +76,11 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
-    Object? streetAddress1 = null,
-    Object? streetAddress2 = null,
-    Object? city = null,
-    Object? state = null,
-    Object? zipCode = null,
+    Object? streetAddress1 = freezed,
+    Object? streetAddress2 = freezed,
+    Object? city = freezed,
+    Object? state = freezed,
+    Object? zipCode = freezed,
   }) {
     return _then(_value.copyWith(
       contactId: null == contactId
@@ -99,26 +99,26 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      streetAddress1: null == streetAddress1
+      streetAddress1: freezed == streetAddress1
           ? _value.streetAddress1
           : streetAddress1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      streetAddress2: null == streetAddress2
+              as String?,
+      streetAddress2: freezed == streetAddress2
           ? _value.streetAddress2
           : streetAddress2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
+              as String?,
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      zipCode: null == zipCode
+              as String?,
+      zipCode: freezed == zipCode
           ? _value.zipCode
           : zipCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -135,11 +135,11 @@ abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
       String firstName,
       String lastName,
       String phoneNumber,
-      String streetAddress1,
-      String streetAddress2,
-      String city,
-      String state,
-      String zipCode});
+      String? streetAddress1,
+      String? streetAddress2,
+      String? city,
+      String? state,
+      String? zipCode});
 }
 
 /// @nodoc
@@ -159,11 +159,11 @@ class __$$ContactImplCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
-    Object? streetAddress1 = null,
-    Object? streetAddress2 = null,
-    Object? city = null,
-    Object? state = null,
-    Object? zipCode = null,
+    Object? streetAddress1 = freezed,
+    Object? streetAddress2 = freezed,
+    Object? city = freezed,
+    Object? state = freezed,
+    Object? zipCode = freezed,
   }) {
     return _then(_$ContactImpl(
       contactId: null == contactId
@@ -182,26 +182,26 @@ class __$$ContactImplCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      streetAddress1: null == streetAddress1
+      streetAddress1: freezed == streetAddress1
           ? _value.streetAddress1
           : streetAddress1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      streetAddress2: null == streetAddress2
+              as String?,
+      streetAddress2: freezed == streetAddress2
           ? _value.streetAddress2
           : streetAddress2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
+              as String?,
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      zipCode: null == zipCode
+              as String?,
+      zipCode: freezed == zipCode
           ? _value.zipCode
           : zipCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -214,11 +214,11 @@ class _$ContactImpl extends _Contact {
       required this.firstName,
       required this.lastName,
       required this.phoneNumber,
-      required this.streetAddress1,
-      required this.streetAddress2,
-      required this.city,
-      required this.state,
-      required this.zipCode})
+      this.streetAddress1,
+      this.streetAddress2,
+      this.city,
+      this.state,
+      this.zipCode})
       : super._();
 
   factory _$ContactImpl.fromJson(Map<String, dynamic> json) =>
@@ -234,15 +234,15 @@ class _$ContactImpl extends _Contact {
   @override
   final String phoneNumber;
   @override
-  final String streetAddress1;
+  final String? streetAddress1;
   @override
-  final String streetAddress2;
+  final String? streetAddress2;
   @override
-  final String city;
+  final String? city;
   @override
-  final String state;
+  final String? state;
   @override
-  final String zipCode;
+  final String? zipCode;
 
   @override
   String toString() {
@@ -298,11 +298,11 @@ abstract class _Contact extends Contact {
       required final String firstName,
       required final String lastName,
       required final String phoneNumber,
-      required final String streetAddress1,
-      required final String streetAddress2,
-      required final String city,
-      required final String state,
-      required final String zipCode}) = _$ContactImpl;
+      final String? streetAddress1,
+      final String? streetAddress2,
+      final String? city,
+      final String? state,
+      final String? zipCode}) = _$ContactImpl;
   const _Contact._() : super._();
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$ContactImpl.fromJson;
@@ -317,15 +317,15 @@ abstract class _Contact extends Contact {
   @override
   String get phoneNumber;
   @override
-  String get streetAddress1;
+  String? get streetAddress1;
   @override
-  String get streetAddress2;
+  String? get streetAddress2;
   @override
-  String get city;
+  String? get city;
   @override
-  String get state;
+  String? get state;
   @override
-  String get zipCode;
+  String? get zipCode;
 
   /// Create a copy of Contact
   /// with the given fields replaced by the non-null parameter values.

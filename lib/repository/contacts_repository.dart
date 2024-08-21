@@ -15,10 +15,16 @@ class ContactsRepository {
         _databaseHelper = databaseHelper;
 
   Future<List<Contact>> getInitialContacts({required String path}) async {
-    final json = await _assetsService.parseListFromJson(path: path);
-    final contacts = _parseContactsList(json);
-    getIt<LogService>().debug('Contacts first names: ${contacts.map((contact) => contact.firstName)}');
-    return contacts;
+    final storedContacts = _databaseHelper.getContacts();
+    if (storedContacts.isEmpty) {
+      final json = await _assetsService.parseListFromJson(path: path);
+      final contacts = _parseContactsList(json);
+      getIt<LogService>().debug('JSON contacts: ${contacts.map((contact) => contact.firstName)}');
+      return contacts;
+    } else {
+      getIt<LogService>().debug('Database contacts: ${storedContacts.map((entity) => entity.firstName)}');
+      return storedContacts.map((entity) => entity.contact).toList();
+    }
   }
 
   List<Contact> _parseContactsList(List<dynamic> list) => List<Contact>.from(
@@ -29,4 +35,6 @@ class ContactsRepository {
     final entities = contacts.map((contact) => contact.entity).toList();
     _databaseHelper.insertContacts(contacts: entities);
   }
+
+  void saveContact({required Contact contact}) => _databaseHelper.insertContact(contact: contact.entity);
 }

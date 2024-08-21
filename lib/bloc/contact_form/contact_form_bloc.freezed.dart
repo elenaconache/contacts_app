@@ -336,6 +336,7 @@ abstract class _FieldChanged implements ContactFormEvent {
 /// @nodoc
 mixin _$ContactFormState {
   List<FormItemData> get formItems => throw _privateConstructorUsedError;
+  bool get isValid => throw _privateConstructorUsedError;
 
   /// Create a copy of ContactFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -350,7 +351,7 @@ abstract class $ContactFormStateCopyWith<$Res> {
           ContactFormState value, $Res Function(ContactFormState) then) =
       _$ContactFormStateCopyWithImpl<$Res, ContactFormState>;
   @useResult
-  $Res call({List<FormItemData> formItems});
+  $Res call({List<FormItemData> formItems, bool isValid});
 }
 
 /// @nodoc
@@ -369,12 +370,17 @@ class _$ContactFormStateCopyWithImpl<$Res, $Val extends ContactFormState>
   @override
   $Res call({
     Object? formItems = null,
+    Object? isValid = null,
   }) {
     return _then(_value.copyWith(
       formItems: null == formItems
           ? _value.formItems
           : formItems // ignore: cast_nullable_to_non_nullable
               as List<FormItemData>,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -387,7 +393,7 @@ abstract class _$$ContactFormStateImplCopyWith<$Res>
       __$$ContactFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FormItemData> formItems});
+  $Res call({List<FormItemData> formItems, bool isValid});
 }
 
 /// @nodoc
@@ -404,12 +410,17 @@ class __$$ContactFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? formItems = null,
+    Object? isValid = null,
   }) {
     return _then(_$ContactFormStateImpl(
       formItems: null == formItems
           ? _value._formItems
           : formItems // ignore: cast_nullable_to_non_nullable
               as List<FormItemData>,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -417,7 +428,8 @@ class __$$ContactFormStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ContactFormStateImpl implements _ContactFormState {
-  const _$ContactFormStateImpl({required final List<FormItemData> formItems})
+  const _$ContactFormStateImpl(
+      {required final List<FormItemData> formItems, required this.isValid})
       : _formItems = formItems;
 
   final List<FormItemData> _formItems;
@@ -429,8 +441,11 @@ class _$ContactFormStateImpl implements _ContactFormState {
   }
 
   @override
+  final bool isValid;
+
+  @override
   String toString() {
-    return 'ContactFormState(formItems: $formItems)';
+    return 'ContactFormState(formItems: $formItems, isValid: $isValid)';
   }
 
   @override
@@ -439,12 +454,13 @@ class _$ContactFormStateImpl implements _ContactFormState {
         (other.runtimeType == runtimeType &&
             other is _$ContactFormStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._formItems, _formItems));
+                .equals(other._formItems, _formItems) &&
+            (identical(other.isValid, isValid) || other.isValid == isValid));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_formItems));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_formItems), isValid);
 
   /// Create a copy of ContactFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -458,10 +474,13 @@ class _$ContactFormStateImpl implements _ContactFormState {
 
 abstract class _ContactFormState implements ContactFormState {
   const factory _ContactFormState(
-      {required final List<FormItemData> formItems}) = _$ContactFormStateImpl;
+      {required final List<FormItemData> formItems,
+      required final bool isValid}) = _$ContactFormStateImpl;
 
   @override
   List<FormItemData> get formItems;
+  @override
+  bool get isValid;
 
   /// Create a copy of ContactFormState
   /// with the given fields replaced by the non-null parameter values.

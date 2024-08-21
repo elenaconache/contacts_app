@@ -14,11 +14,11 @@ class Contact with _$Contact {
     required String firstName,
     required String lastName,
     required String phoneNumber,
-    required String streetAddress1,
-    required String streetAddress2,
-    required String city,
-    required String state,
-    required String zipCode,
+    String? streetAddress1,
+    String? streetAddress2,
+    String? city,
+    String? state,
+    String? zipCode,
   }) = _Contact;
 
   factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);

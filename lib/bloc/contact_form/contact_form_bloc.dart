@@ -9,7 +9,7 @@ part 'contact_form_state.dart';
 part 'contact_form_bloc.freezed.dart';
 
 class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
-  ContactFormBloc({required List<FormItemData> formItems}) : super(ContactFormState.edited(formItems: formItems)) {
+  ContactFormBloc({required List<FormItemData> formItems}) : super(ContactFormState.incomplete(formItems: formItems)) {
     on<ContactFormEvent>(
       (event, emit) {
         event.when(
@@ -21,12 +21,14 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
   }
 
   void _onFieldChanged(ContactFormEvent event, Emitter<ContactFormState> emit, String key, String value) {
+    final updatedFormItems =
+        state.formItems.map((formItem) => formItem.key == key ? formItem.copyWith(value: value) : formItem).toList();
+    final isValid =
+        updatedFormItems.where((item) => item.isMandatory).toList().every((item) => item.value?.isNotEmpty ?? false);
     emit(
-      ContactFormState.edited(
-        formItems: state.formItems
-            .map((formItem) => formItem.key == key ? formItem.copyWith(value: value) : formItem)
-            .toList(),
-      ),
+      isValid
+          ? ContactFormState.valid(formItems: updatedFormItems)
+          : ContactFormState.incomplete(formItems: updatedFormItems),
     );
   }
 

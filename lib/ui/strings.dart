@@ -10,3 +10,4 @@ const streetAddress2Hint = 'Street address 2';
 const cityHint = 'City';
 const stateHint = 'State';
 const zipCodeHint = 'Zip code';
+const doneLabel = 'Done';

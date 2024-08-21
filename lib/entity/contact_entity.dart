@@ -1,3 +1,4 @@
+import 'package:contacts_app/model/contact.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -28,4 +29,16 @@ class ContactEntity {
     this.state,
     this.zipCode,
   });
+
+  Contact get contact => Contact(
+        contactId: contactId,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        city: city,
+        state: state,
+        streetAddress1: streetAddress1,
+        streetAddress2: streetAddress2,
+        zipCode: zipCode,
+      );
 }

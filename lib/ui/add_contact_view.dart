@@ -12,13 +12,23 @@ class AddContactView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(createContactTitle),
-      ),
-      body: BlocProvider(
-        create: (context) => ContactFormBloc(formItems: _initialFormItems),
-        child: const ContactForm(),
+    return BlocProvider(
+      create: (_) => ContactFormBloc(formItems: _initialFormItems),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(createContactTitle),
+          actions: [
+            BlocBuilder<ContactFormBloc, ContactFormState>(
+              builder: (_, state) {
+                return TextButton(
+                  onPressed: state.isValid ? () {} : null,
+                  child: const Text(doneLabel),
+                );
+              },
+            ),
+          ],
+        ),
+        body: const ContactForm(),
       ),
     );
   }

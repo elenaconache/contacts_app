@@ -18,4 +18,15 @@ class DatabaseHelper {
       getIt<LogService>().exception(error: error, stackTrace: stackTrace);
     }
   }
+
+  void insertContact({required ContactEntity contact}) {
+    try {
+      final id = _contactBox.put(contact);
+      getIt<LogService>().debug('Inserted id: $id');
+    } on ObjectBoxException catch (error, stackTrace) {
+      getIt<LogService>().exception(error: error, stackTrace: stackTrace);
+    }
+  }
+
+  List<ContactEntity> getContacts() => _contactBox.getAll();
 }
