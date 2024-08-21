@@ -25,6 +25,7 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
   }
 
   Future<void> _onContactsListRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
+    emit(const ContactsListState.loading());
     await Future.delayed(const Duration(milliseconds: 600));
     await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) {
       _contactsRepository.saveContacts(contacts: contacts);

@@ -1,58 +1,76 @@
-import 'dart:math';
-
+import 'package:contacts_app/bloc/add_contact/add_contact_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/contact_form_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
+import 'package:contacts_app/bloc/contact_form/keys.dart';
+import 'package:contacts_app/model/contact.dart';
+import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/ui/contact_form.dart';
 import 'package:contacts_app/ui/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class AddContactView extends StatelessWidget {
   const AddContactView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => ContactFormBloc(formItems: _initialFormItems),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(createContactTitle),
-          actions: [
-            BlocBuilder<ContactFormBloc, ContactFormState>(
-              builder: (_, state) {
-                return TextButton(
-                  onPressed: state.isValid ? () {} : null,
-                  child: const Text(doneLabel),
-                );
-              },
-            ),
-          ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ContactFormBloc(formItems: _initialFormItems)),
+        BlocProvider(create: (_) => AddContactBloc(contactsRepository: context.read<ContactsRepository>())),
+      ],
+      child: BlocListener<AddContactBloc, AddContactState>(
+        listener: (context, state) {
+          state.when(
+            pending: () {},
+            confirmed: (contact) => _onContactAdded(context, contact),
+          );
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text(createContactTitle),
+            actions: [
+              BlocBuilder<ContactFormBloc, ContactFormState>(
+                builder: (context, state) {
+                  return TextButton(
+                    onPressed: state.isValid
+                        ? () => context.read<AddContactBloc>().addContact(formItems: state.formItems)
+                        : null,
+                    child: const Text(doneLabel),
+                  );
+                },
+              ),
+            ],
+          ),
+          body: const ContactForm(),
         ),
-        body: const ContactForm(),
       ),
     );
   }
 
   List<FormItemData> get _initialFormItems => [
         FormItemData(
-          key: Random().nextDouble().toString(),
+          key: firstNameKey,
           hint: firstNameHint,
           isMandatory: true,
         ),
         FormItemData(
-          key: Random().nextDouble().toString(),
+          key: lastNameKey,
           hint: lastNameHint,
           isMandatory: true,
         ),
         FormItemData(
-          key: Random().nextDouble().toString(),
+          key: phoneKey,
           hint: phoneHint,
           isMandatory: true,
         ),
-        FormItemData(key: Random().nextDouble().toString(), hint: streetAddress1Hint),
-        FormItemData(key: Random().nextDouble().toString(), hint: streetAddress2Hint),
-        FormItemData(key: Random().nextDouble().toString(), hint: cityHint),
-        FormItemData(key: Random().nextDouble().toString(), hint: stateHint),
-        FormItemData(key: Random().nextDouble().toString(), hint: zipCodeHint),
+        FormItemData(key: streetAddress1Key, hint: streetAddress1Hint),
+        FormItemData(key: streetAddress2Key, hint: streetAddress2Hint),
+        FormItemData(key: cityKey, hint: cityHint),
+        FormItemData(key: stateKey, hint: stateHint),
+        FormItemData(key: zipCodeKey, hint: zipCodeHint),
       ];
+
+  void _onContactAdded(BuildContext context, Contact contact) => context.pop(contact);
 }

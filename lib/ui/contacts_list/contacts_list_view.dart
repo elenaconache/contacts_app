@@ -34,5 +34,13 @@ class ContactsListView extends StatelessWidget {
     );
   }
 
-  void _onAddPressed(BuildContext context) => context.goNamed(Routes.addContact.name);
+  void _onAddPressed(BuildContext context) {
+    context.pushNamed(Routes.addContact.name).then(
+      (addedContact) {
+        if (addedContact != null && context.mounted) {
+          context.read<ContactsListBloc>().add(const ContactsListEvent.contactsListRequested());
+        }
+      },
+    );
+  }
 }
