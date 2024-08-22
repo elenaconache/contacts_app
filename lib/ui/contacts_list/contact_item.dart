@@ -29,5 +29,5 @@ class ContactItem extends StatelessWidget {
     );
   }
 
-  void _onContactTapped(BuildContext context) => context.goNamed(Routes.contactDetails.name);
+  void _onContactTapped(BuildContext context) => context.pushNamed(Routes.contactDetails.name, extra: contact);
 }

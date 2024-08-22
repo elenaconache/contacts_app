@@ -1,7 +1,7 @@
 import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/ui/contacts_list/contact_item.dart';
-import 'package:contacts_app/ui/strings.dart';
+import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

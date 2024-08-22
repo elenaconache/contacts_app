@@ -1,5 +1,5 @@
 import 'package:contacts_app/bloc/contact_form/contact_form_bloc.dart';
-import 'package:contacts_app/ui/app_text_field.dart';
+import 'package:contacts_app/ui/shared/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

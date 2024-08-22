@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:contacts_app/entity/contact_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -36,4 +37,9 @@ class Contact with _$Contact {
         streetAddress2: streetAddress2,
         zipCode: zipCode,
       );
+
+  String get address => 
+      [streetAddress1, streetAddress2, [city, state, zipCode].whereNotNull().join(' ')]
+      .whereNotNull().where((element) => element.isNotEmpty).toList()
+      .join('\n');
 }

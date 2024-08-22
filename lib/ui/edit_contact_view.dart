@@ -1,4 +1,4 @@
-import 'package:contacts_app/ui/strings.dart';
+import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
 
 class EditContactView extends StatelessWidget {

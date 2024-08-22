@@ -1,5 +1,6 @@
 import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
+import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/ui/add_contact_view.dart';
 import 'package:contacts_app/ui/contact_details_view.dart';
@@ -23,7 +24,7 @@ final router = GoRouter(
         GoRoute(
           path: Routes.contactDetails.path,
           name: Routes.contactDetails.name,
-          builder: (_, __) => const ContactDetailsView(),
+          builder: (_, state) => ContactDetailsView(contact: state.extra as Contact),
           routes: [
             GoRoute(
               path: Routes.editContact.path,

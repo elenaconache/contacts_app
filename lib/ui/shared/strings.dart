@@ -11,3 +11,7 @@ const cityHint = 'City';
 const stateHint = 'State';
 const zipCodeHint = 'Zip code';
 const doneLabel = 'Done';
+const editLabel = 'Edit';
+const phoneLabel = 'Phone';
+const addressLabel = 'Address';
+const deleteContactLabel = 'Delete contact';
