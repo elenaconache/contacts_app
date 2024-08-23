@@ -88,9 +88,11 @@ class ContactDetailsView extends StatelessWidget {
   void _onDeleted(BuildContext context) => context.pop(true);
 
   void _onEditPressed(BuildContext context) async {
-    final updated = await context.pushNamed(Routes.editContact.name, extra: contact);
+    final contactBloc = context.read<ContactBloc>();
+    final currentContact = contactBloc.state.map(fetched: (state) => state.contact, deleted: (_) => contact);
+    final updated = await context.pushNamed(Routes.editContact.name, extra: currentContact);
     if (context.mounted && updated != null && updated is Contact) {
-      context.read<ContactBloc>().requestUpdate(updatedContact: updated);
+      contactBloc.requestUpdate(updatedContact: updated);
     }
   }
 }
