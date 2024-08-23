@@ -1,4 +1,5 @@
 import 'package:contacts_app/config/injector.dart';
+import 'package:contacts_app/entity/contact_entity.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/service/log_service.dart';
@@ -27,12 +28,21 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
   Future<void> _onContactsListRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
     emit(const ContactsListState.loading());
     await Future.delayed(const Duration(milliseconds: 600));
-    await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) {
-      _contactsRepository.saveContacts(contacts: contacts);
-      emit(ContactsListState.fetched(contacts: contacts));
-    }).catchError((error, stackTrace) {
-      getIt<LogService>().exception(error: error, stackTrace: stackTrace);
-      emit(const ContactsListState.fetchError());
-    });
+    //TODO: implement get count to check if local data exists
+    final localContacts = _contactsRepository.getLocalContacts();
+    if (localContacts.isEmpty) {
+      await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) {
+        _contactsRepository.saveContacts(contacts: contacts);
+        final importedContacts = _contactsRepository.getLocalContacts();
+        emit(ContactsListState.fetched(contacts: _mapContacts(importedContacts)));
+      }).catchError((error, stackTrace) {
+        getIt<LogService>().exception(error: error, stackTrace: stackTrace);
+        emit(const ContactsListState.fetchError());
+      });
+    } else {
+      emit(ContactsListState.fetched(contacts: _mapContacts(localContacts)));
+    }
   }
+
+  List<Contact> _mapContacts(List<ContactEntity> entities) => entities.map((entity) => entity.contact).toList();
 }

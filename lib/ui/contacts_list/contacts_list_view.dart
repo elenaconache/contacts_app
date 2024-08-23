@@ -1,5 +1,6 @@
 import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
 import 'package:contacts_app/config/routes.dart';
+import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/ui/contacts_list/contact_item.dart';
 import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +24,16 @@ class ContactsListView extends StatelessWidget {
       ),
       body: BlocBuilder<ContactsListBloc, ContactsListState>(
         builder: (context, state) => state.when(
-          (contacts) => ListView.builder(
-            itemBuilder: (context, index) => ContactItem(contact: contacts[index]),
-            itemCount: contacts.length,
-          ),
+          fetched: (contacts) => ListView.builder(
+              itemBuilder: (context, index) {
+                final contact = contacts[index];
+                return ContactItem(
+                  contact: contact,
+                  onTap: () => _onContactTapped(context, contact),
+                );
+              },
+              itemCount: contacts.length,
+            ),
           loading: () => const Center(child: CircularProgressIndicator()),
           fetchError: () => const Center(child: Text(errorMessage)),
         ),
@@ -42,5 +49,12 @@ class ContactsListView extends StatelessWidget {
         }
       },
     );
+  }
+
+  void _onContactTapped(BuildContext context, Contact contact) async {
+    final deleted = await context.pushNamed(Routes.contactDetails.name, extra: contact) as bool?;
+    if (context.mounted && (deleted ?? false)) {
+      context.read<ContactsListBloc>().add(const ContactsListEvent.contactsListRequested());
+    }
   }
 }

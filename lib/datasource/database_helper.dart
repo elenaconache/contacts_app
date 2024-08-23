@@ -28,5 +28,7 @@ class DatabaseHelper {
     }
   }
 
+  void deleteContact({required int id})  => _contactBox.remove(id);
+
   List<ContactEntity> getContacts() => _contactBox.getAll();
 }

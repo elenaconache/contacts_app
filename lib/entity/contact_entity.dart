@@ -1,4 +1,5 @@
 import 'package:contacts_app/model/contact.dart';
+import 'package:contacts_app/model/json_contact.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -30,8 +31,20 @@ class ContactEntity {
     this.zipCode,
   });
 
-  Contact get contact => Contact(
+  JsonContact get jsonContact => JsonContact(
         contactId: contactId,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        city: city,
+        state: state,
+        streetAddress1: streetAddress1,
+        streetAddress2: streetAddress2,
+        zipCode: zipCode,
+      );
+
+  Contact get contact => Contact(
+        entityId: id,
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,

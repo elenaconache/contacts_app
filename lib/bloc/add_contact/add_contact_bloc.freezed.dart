@@ -16,20 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddContactEvent {
-  Contact get contact => throw _privateConstructorUsedError;
+  JsonContact get contact => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Contact contact) added,
+    required TResult Function(JsonContact contact) added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Contact contact)? added,
+    TResult? Function(JsonContact contact)? added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Contact contact)? added,
+    TResult Function(JsonContact contact)? added,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,9 +63,9 @@ abstract class $AddContactEventCopyWith<$Res> {
           AddContactEvent value, $Res Function(AddContactEvent) then) =
       _$AddContactEventCopyWithImpl<$Res, AddContactEvent>;
   @useResult
-  $Res call({Contact contact});
+  $Res call({JsonContact contact});
 
-  $ContactCopyWith<$Res> get contact;
+  $JsonContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class _$AddContactEventCopyWithImpl<$Res, $Val extends AddContactEvent>
       contact: null == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Contact,
+              as JsonContact,
     ) as $Val);
   }
 
@@ -97,8 +97,8 @@ class _$AddContactEventCopyWithImpl<$Res, $Val extends AddContactEvent>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ContactCopyWith<$Res> get contact {
-    return $ContactCopyWith<$Res>(_value.contact, (value) {
+  $JsonContactCopyWith<$Res> get contact {
+    return $JsonContactCopyWith<$Res>(_value.contact, (value) {
       return _then(_value.copyWith(contact: value) as $Val);
     });
   }
@@ -112,10 +112,10 @@ abstract class _$$AddedImplCopyWith<$Res>
       __$$AddedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Contact contact});
+  $Res call({JsonContact contact});
 
   @override
-  $ContactCopyWith<$Res> get contact;
+  $JsonContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -137,7 +137,7 @@ class __$$AddedImplCopyWithImpl<$Res>
       contact: null == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Contact,
+              as JsonContact,
     ));
   }
 }
@@ -148,7 +148,7 @@ class _$AddedImpl implements _Added {
   const _$AddedImpl({required this.contact});
 
   @override
-  final Contact contact;
+  final JsonContact contact;
 
   @override
   String toString() {
@@ -177,7 +177,7 @@ class _$AddedImpl implements _Added {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Contact contact) added,
+    required TResult Function(JsonContact contact) added,
   }) {
     return added(contact);
   }
@@ -185,7 +185,7 @@ class _$AddedImpl implements _Added {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Contact contact)? added,
+    TResult? Function(JsonContact contact)? added,
   }) {
     return added?.call(contact);
   }
@@ -193,7 +193,7 @@ class _$AddedImpl implements _Added {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Contact contact)? added,
+    TResult Function(JsonContact contact)? added,
     required TResult orElse(),
   }) {
     if (added != null) {
@@ -232,10 +232,10 @@ class _$AddedImpl implements _Added {
 }
 
 abstract class _Added implements AddContactEvent {
-  const factory _Added({required final Contact contact}) = _$AddedImpl;
+  const factory _Added({required final JsonContact contact}) = _$AddedImpl;
 
   @override
-  Contact get contact;
+  JsonContact get contact;
 
   /// Create a copy of AddContactEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -250,19 +250,19 @@ mixin _$AddContactState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pending,
-    required TResult Function(Contact contact) confirmed,
+    required TResult Function(JsonContact contact) confirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pending,
-    TResult? Function(Contact contact)? confirmed,
+    TResult? Function(JsonContact contact)? confirmed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pending,
-    TResult Function(Contact contact)? confirmed,
+    TResult Function(JsonContact contact)? confirmed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -350,7 +350,7 @@ class _$PendingImpl implements _Pending {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pending,
-    required TResult Function(Contact contact) confirmed,
+    required TResult Function(JsonContact contact) confirmed,
   }) {
     return pending();
   }
@@ -359,7 +359,7 @@ class _$PendingImpl implements _Pending {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pending,
-    TResult? Function(Contact contact)? confirmed,
+    TResult? Function(JsonContact contact)? confirmed,
   }) {
     return pending?.call();
   }
@@ -368,7 +368,7 @@ class _$PendingImpl implements _Pending {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pending,
-    TResult Function(Contact contact)? confirmed,
+    TResult Function(JsonContact contact)? confirmed,
     required TResult orElse(),
   }) {
     if (pending != null) {
@@ -419,9 +419,9 @@ abstract class _$$ConfirmedImplCopyWith<$Res> {
           _$ConfirmedImpl value, $Res Function(_$ConfirmedImpl) then) =
       __$$ConfirmedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Contact contact});
+  $Res call({JsonContact contact});
 
-  $ContactCopyWith<$Res> get contact;
+  $JsonContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -443,7 +443,7 @@ class __$$ConfirmedImplCopyWithImpl<$Res>
       contact: null == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Contact,
+              as JsonContact,
     ));
   }
 
@@ -451,8 +451,8 @@ class __$$ConfirmedImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ContactCopyWith<$Res> get contact {
-    return $ContactCopyWith<$Res>(_value.contact, (value) {
+  $JsonContactCopyWith<$Res> get contact {
+    return $JsonContactCopyWith<$Res>(_value.contact, (value) {
       return _then(_value.copyWith(contact: value));
     });
   }
@@ -464,7 +464,7 @@ class _$ConfirmedImpl implements _Confirmed {
   const _$ConfirmedImpl({required this.contact});
 
   @override
-  final Contact contact;
+  final JsonContact contact;
 
   @override
   String toString() {
@@ -494,7 +494,7 @@ class _$ConfirmedImpl implements _Confirmed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pending,
-    required TResult Function(Contact contact) confirmed,
+    required TResult Function(JsonContact contact) confirmed,
   }) {
     return confirmed(contact);
   }
@@ -503,7 +503,7 @@ class _$ConfirmedImpl implements _Confirmed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? pending,
-    TResult? Function(Contact contact)? confirmed,
+    TResult? Function(JsonContact contact)? confirmed,
   }) {
     return confirmed?.call(contact);
   }
@@ -512,7 +512,7 @@ class _$ConfirmedImpl implements _Confirmed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pending,
-    TResult Function(Contact contact)? confirmed,
+    TResult Function(JsonContact contact)? confirmed,
     required TResult orElse(),
   }) {
     if (confirmed != null) {
@@ -554,9 +554,10 @@ class _$ConfirmedImpl implements _Confirmed {
 }
 
 abstract class _Confirmed implements AddContactState {
-  const factory _Confirmed({required final Contact contact}) = _$ConfirmedImpl;
+  const factory _Confirmed({required final JsonContact contact}) =
+      _$ConfirmedImpl;
 
-  Contact get contact;
+  JsonContact get contact;
 
   /// Create a copy of AddContactState
   /// with the given fields replaced by the non-null parameter values.

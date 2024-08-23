@@ -1,16 +1,16 @@
-import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class ContactItem extends StatelessWidget {
   final Contact contact;
+  final VoidCallback onTap;
 
-  const ContactItem({super.key, required this.contact});
+  const ContactItem({super.key, required this.contact, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: DecoratedBox(
         decoration: const BoxDecoration(
           border: Border(
@@ -25,9 +25,6 @@ class ContactItem extends StatelessWidget {
           child: Text(contact.fullName),
         ),
       ),
-      onTap: () => _onContactTapped(context),
     );
   }
-
-  void _onContactTapped(BuildContext context) => context.pushNamed(Routes.contactDetails.name, extra: contact);
 }

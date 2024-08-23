@@ -2,7 +2,7 @@ import 'package:contacts_app/bloc/add_contact/add_contact_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/contact_form_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
-import 'package:contacts_app/model/contact.dart';
+import 'package:contacts_app/model/json_contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/ui/shared/contact_form.dart';
 import 'package:contacts_app/ui/shared/strings.dart';
@@ -72,5 +72,5 @@ class AddContactView extends StatelessWidget {
         FormItemData(key: zipCodeKey, hint: zipCodeHint),
       ];
 
-  void _onContactAdded(BuildContext context, Contact contact) => context.pop(contact);
+  void _onContactAdded(BuildContext context, JsonContact contact) => context.pop(contact);
 }

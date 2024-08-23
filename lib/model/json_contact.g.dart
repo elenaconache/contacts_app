@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'contact.dart';
+part of 'json_contact.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ContactImpl _$$ContactImplFromJson(Map<String, dynamic> json) =>
-    _$ContactImpl(
+_$JsonContactImpl _$$JsonContactImplFromJson(Map<String, dynamic> json) =>
+    _$JsonContactImpl(
       contactId: json['contactID'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
@@ -19,7 +19,7 @@ _$ContactImpl _$$ContactImplFromJson(Map<String, dynamic> json) =>
       zipCode: json['zipCode'] as String?,
     );
 
-Map<String, dynamic> _$$ContactImplToJson(_$ContactImpl instance) =>
+Map<String, dynamic> _$$JsonContactImplToJson(_$JsonContactImpl instance) =>
     <String, dynamic>{
       'contactID': instance.contactId,
       'firstName': instance.firstName,

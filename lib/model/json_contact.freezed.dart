@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'contact.dart';
+part of 'json_contact.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,9 +14,14 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+JsonContact _$JsonContactFromJson(Map<String, dynamic> json) {
+  return _JsonContact.fromJson(json);
+}
+
 /// @nodoc
-mixin _$Contact {
-  int get entityId => throw _privateConstructorUsedError;
+mixin _$JsonContact {
+  @JsonKey(name: 'contactID')
+  String get contactId => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -26,19 +31,24 @@ mixin _$Contact {
   String? get state => throw _privateConstructorUsedError;
   String? get zipCode => throw _privateConstructorUsedError;
 
-  /// Create a copy of Contact
+  /// Serializes this JsonContact to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of JsonContact
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ContactCopyWith<Contact> get copyWith => throw _privateConstructorUsedError;
+  $JsonContactCopyWith<JsonContact> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ContactCopyWith<$Res> {
-  factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
-      _$ContactCopyWithImpl<$Res, Contact>;
+abstract class $JsonContactCopyWith<$Res> {
+  factory $JsonContactCopyWith(
+          JsonContact value, $Res Function(JsonContact) then) =
+      _$JsonContactCopyWithImpl<$Res, JsonContact>;
   @useResult
   $Res call(
-      {int entityId,
+      {@JsonKey(name: 'contactID') String contactId,
       String firstName,
       String lastName,
       String phoneNumber,
@@ -50,21 +60,21 @@ abstract class $ContactCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ContactCopyWithImpl<$Res, $Val extends Contact>
-    implements $ContactCopyWith<$Res> {
-  _$ContactCopyWithImpl(this._value, this._then);
+class _$JsonContactCopyWithImpl<$Res, $Val extends JsonContact>
+    implements $JsonContactCopyWith<$Res> {
+  _$JsonContactCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Contact
+  /// Create a copy of JsonContact
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? entityId = null,
+    Object? contactId = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -75,10 +85,10 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
     Object? zipCode = freezed,
   }) {
     return _then(_value.copyWith(
-      entityId: null == entityId
-          ? _value.entityId
-          : entityId // ignore: cast_nullable_to_non_nullable
-              as int,
+      contactId: null == contactId
+          ? _value.contactId
+          : contactId // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -116,14 +126,15 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
 }
 
 /// @nodoc
-abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
-  factory _$$ContactImplCopyWith(
-          _$ContactImpl value, $Res Function(_$ContactImpl) then) =
-      __$$ContactImplCopyWithImpl<$Res>;
+abstract class _$$JsonContactImplCopyWith<$Res>
+    implements $JsonContactCopyWith<$Res> {
+  factory _$$JsonContactImplCopyWith(
+          _$JsonContactImpl value, $Res Function(_$JsonContactImpl) then) =
+      __$$JsonContactImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int entityId,
+      {@JsonKey(name: 'contactID') String contactId,
       String firstName,
       String lastName,
       String phoneNumber,
@@ -135,19 +146,19 @@ abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ContactImplCopyWithImpl<$Res>
-    extends _$ContactCopyWithImpl<$Res, _$ContactImpl>
-    implements _$$ContactImplCopyWith<$Res> {
-  __$$ContactImplCopyWithImpl(
-      _$ContactImpl _value, $Res Function(_$ContactImpl) _then)
+class __$$JsonContactImplCopyWithImpl<$Res>
+    extends _$JsonContactCopyWithImpl<$Res, _$JsonContactImpl>
+    implements _$$JsonContactImplCopyWith<$Res> {
+  __$$JsonContactImplCopyWithImpl(
+      _$JsonContactImpl _value, $Res Function(_$JsonContactImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Contact
+  /// Create a copy of JsonContact
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? entityId = null,
+    Object? contactId = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -157,11 +168,11 @@ class __$$ContactImplCopyWithImpl<$Res>
     Object? state = freezed,
     Object? zipCode = freezed,
   }) {
-    return _then(_$ContactImpl(
-      entityId: null == entityId
-          ? _value.entityId
-          : entityId // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$JsonContactImpl(
+      contactId: null == contactId
+          ? _value.contactId
+          : contactId // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -199,10 +210,10 @@ class __$$ContactImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$ContactImpl extends _Contact {
-  const _$ContactImpl(
-      {required this.entityId,
+@JsonSerializable()
+class _$JsonContactImpl extends _JsonContact {
+  const _$JsonContactImpl(
+      {@JsonKey(name: 'contactID') required this.contactId,
       required this.firstName,
       required this.lastName,
       required this.phoneNumber,
@@ -213,8 +224,12 @@ class _$ContactImpl extends _Contact {
       this.zipCode})
       : super._();
 
+  factory _$JsonContactImpl.fromJson(Map<String, dynamic> json) =>
+      _$$JsonContactImplFromJson(json);
+
   @override
-  final int entityId;
+  @JsonKey(name: 'contactID')
+  final String contactId;
   @override
   final String firstName;
   @override
@@ -234,16 +249,16 @@ class _$ContactImpl extends _Contact {
 
   @override
   String toString() {
-    return 'Contact(entityId: $entityId, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, state: $state, zipCode: $zipCode)';
+    return 'JsonContact(contactId: $contactId, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, state: $state, zipCode: $zipCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContactImpl &&
-            (identical(other.entityId, entityId) ||
-                other.entityId == entityId) &&
+            other is _$JsonContactImpl &&
+            (identical(other.contactId, contactId) ||
+                other.contactId == contactId) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -259,22 +274,30 @@ class _$ContactImpl extends _Contact {
             (identical(other.zipCode, zipCode) || other.zipCode == zipCode));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, entityId, firstName, lastName,
+  int get hashCode => Object.hash(runtimeType, contactId, firstName, lastName,
       phoneNumber, streetAddress1, streetAddress2, city, state, zipCode);
 
-  /// Create a copy of Contact
+  /// Create a copy of JsonContact
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContactImplCopyWith<_$ContactImpl> get copyWith =>
-      __$$ContactImplCopyWithImpl<_$ContactImpl>(this, _$identity);
+  _$$JsonContactImplCopyWith<_$JsonContactImpl> get copyWith =>
+      __$$JsonContactImplCopyWithImpl<_$JsonContactImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$JsonContactImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Contact extends Contact {
-  const factory _Contact(
-      {required final int entityId,
+abstract class _JsonContact extends JsonContact {
+  const factory _JsonContact(
+      {@JsonKey(name: 'contactID') required final String contactId,
       required final String firstName,
       required final String lastName,
       required final String phoneNumber,
@@ -282,11 +305,15 @@ abstract class _Contact extends Contact {
       final String? streetAddress2,
       final String? city,
       final String? state,
-      final String? zipCode}) = _$ContactImpl;
-  const _Contact._() : super._();
+      final String? zipCode}) = _$JsonContactImpl;
+  const _JsonContact._() : super._();
+
+  factory _JsonContact.fromJson(Map<String, dynamic> json) =
+      _$JsonContactImpl.fromJson;
 
   @override
-  int get entityId;
+  @JsonKey(name: 'contactID')
+  String get contactId;
   @override
   String get firstName;
   @override
@@ -304,10 +331,10 @@ abstract class _Contact extends Contact {
   @override
   String? get zipCode;
 
-  /// Create a copy of Contact
+  /// Create a copy of JsonContact
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContactImplCopyWith<_$ContactImpl> get copyWith =>
+  _$$JsonContactImplCopyWith<_$JsonContactImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

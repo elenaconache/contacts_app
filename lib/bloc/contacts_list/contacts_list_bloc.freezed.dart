@@ -177,44 +177,44 @@ abstract class _ContactsListRequested implements ContactsListEvent {
 /// @nodoc
 mixin _$ContactsListState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<Contact> contacts) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Contact> contacts) fetched,
     required TResult Function() loading,
     required TResult Function() fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<Contact> contacts)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Contact> contacts)? fetched,
     TResult? Function()? loading,
     TResult? Function()? fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Contact> contacts)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Contact> contacts)? fetched,
     TResult Function()? loading,
     TResult Function()? fetchError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactsListState value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetched value) fetched,
     required TResult Function(_Loading value) loading,
     required TResult Function(_FetchError value) fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactsListState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetched value)? fetched,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchError value)? fetchError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactsListState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetched value)? fetched,
     TResult Function(_Loading value)? loading,
     TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),
@@ -244,20 +244,20 @@ class _$ContactsListStateCopyWithImpl<$Res, $Val extends ContactsListState>
 }
 
 /// @nodoc
-abstract class _$$ContactsListStateImplCopyWith<$Res> {
-  factory _$$ContactsListStateImplCopyWith(_$ContactsListStateImpl value,
-          $Res Function(_$ContactsListStateImpl) then) =
-      __$$ContactsListStateImplCopyWithImpl<$Res>;
+abstract class _$$FetchedImplCopyWith<$Res> {
+  factory _$$FetchedImplCopyWith(
+          _$FetchedImpl value, $Res Function(_$FetchedImpl) then) =
+      __$$FetchedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Contact> contacts});
 }
 
 /// @nodoc
-class __$$ContactsListStateImplCopyWithImpl<$Res>
-    extends _$ContactsListStateCopyWithImpl<$Res, _$ContactsListStateImpl>
-    implements _$$ContactsListStateImplCopyWith<$Res> {
-  __$$ContactsListStateImplCopyWithImpl(_$ContactsListStateImpl _value,
-      $Res Function(_$ContactsListStateImpl) _then)
+class __$$FetchedImplCopyWithImpl<$Res>
+    extends _$ContactsListStateCopyWithImpl<$Res, _$FetchedImpl>
+    implements _$$FetchedImplCopyWith<$Res> {
+  __$$FetchedImplCopyWithImpl(
+      _$FetchedImpl _value, $Res Function(_$FetchedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ContactsListState
@@ -267,7 +267,7 @@ class __$$ContactsListStateImplCopyWithImpl<$Res>
   $Res call({
     Object? contacts = null,
   }) {
-    return _then(_$ContactsListStateImpl(
+    return _then(_$FetchedImpl(
       contacts: null == contacts
           ? _value._contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -278,9 +278,8 @@ class __$$ContactsListStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ContactsListStateImpl implements _ContactsListState {
-  const _$ContactsListStateImpl({required final List<Contact> contacts})
-      : _contacts = contacts;
+class _$FetchedImpl implements _Fetched {
+  _$FetchedImpl({required final List<Contact> contacts}) : _contacts = contacts;
 
   final List<Contact> _contacts;
   @override
@@ -292,14 +291,14 @@ class _$ContactsListStateImpl implements _ContactsListState {
 
   @override
   String toString() {
-    return 'ContactsListState(contacts: $contacts)';
+    return 'ContactsListState.fetched(contacts: $contacts)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContactsListStateImpl &&
+            other is _$FetchedImpl &&
             const DeepCollectionEquality().equals(other._contacts, _contacts));
   }
 
@@ -312,89 +311,87 @@ class _$ContactsListStateImpl implements _ContactsListState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContactsListStateImplCopyWith<_$ContactsListStateImpl> get copyWith =>
-      __$$ContactsListStateImplCopyWithImpl<_$ContactsListStateImpl>(
-          this, _$identity);
+  _$$FetchedImplCopyWith<_$FetchedImpl> get copyWith =>
+      __$$FetchedImplCopyWithImpl<_$FetchedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<Contact> contacts) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Contact> contacts) fetched,
     required TResult Function() loading,
     required TResult Function() fetchError,
   }) {
-    return $default(contacts);
+    return fetched(contacts);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<Contact> contacts)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Contact> contacts)? fetched,
     TResult? Function()? loading,
     TResult? Function()? fetchError,
   }) {
-    return $default?.call(contacts);
+    return fetched?.call(contacts);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Contact> contacts)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Contact> contacts)? fetched,
     TResult Function()? loading,
     TResult Function()? fetchError,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(contacts);
+    if (fetched != null) {
+      return fetched(contacts);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactsListState value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetched value) fetched,
     required TResult Function(_Loading value) loading,
     required TResult Function(_FetchError value) fetchError,
   }) {
-    return $default(this);
+    return fetched(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactsListState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetched value)? fetched,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchError value)? fetchError,
   }) {
-    return $default?.call(this);
+    return fetched?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactsListState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetched value)? fetched,
     TResult Function(_Loading value)? loading,
     TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (fetched != null) {
+      return fetched(this);
     }
     return orElse();
   }
 }
 
-abstract class _ContactsListState implements ContactsListState {
-  const factory _ContactsListState({required final List<Contact> contacts}) =
-      _$ContactsListStateImpl;
+abstract class _Fetched implements ContactsListState {
+  factory _Fetched({required final List<Contact> contacts}) = _$FetchedImpl;
 
   List<Contact> get contacts;
 
   /// Create a copy of ContactsListState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContactsListStateImplCopyWith<_$ContactsListStateImpl> get copyWith =>
+  _$$FetchedImplCopyWith<_$FetchedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -438,8 +435,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<Contact> contacts) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Contact> contacts) fetched,
     required TResult Function() loading,
     required TResult Function() fetchError,
   }) {
@@ -448,8 +445,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<Contact> contacts)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Contact> contacts)? fetched,
     TResult? Function()? loading,
     TResult? Function()? fetchError,
   }) {
@@ -458,8 +455,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Contact> contacts)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Contact> contacts)? fetched,
     TResult Function()? loading,
     TResult Function()? fetchError,
     required TResult orElse(),
@@ -472,8 +469,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactsListState value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetched value) fetched,
     required TResult Function(_Loading value) loading,
     required TResult Function(_FetchError value) fetchError,
   }) {
@@ -482,8 +479,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactsListState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetched value)? fetched,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchError value)? fetchError,
   }) {
@@ -492,8 +489,8 @@ class _$LoadingImpl implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactsListState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetched value)? fetched,
     TResult Function(_Loading value)? loading,
     TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),
@@ -549,8 +546,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<Contact> contacts) $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Contact> contacts) fetched,
     required TResult Function() loading,
     required TResult Function() fetchError,
   }) {
@@ -559,8 +556,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<Contact> contacts)? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Contact> contacts)? fetched,
     TResult? Function()? loading,
     TResult? Function()? fetchError,
   }) {
@@ -569,8 +566,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<Contact> contacts)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Contact> contacts)? fetched,
     TResult Function()? loading,
     TResult Function()? fetchError,
     required TResult orElse(),
@@ -583,8 +580,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactsListState value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetched value) fetched,
     required TResult Function(_Loading value) loading,
     required TResult Function(_FetchError value) fetchError,
   }) {
@@ -593,8 +590,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactsListState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetched value)? fetched,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_FetchError value)? fetchError,
   }) {
@@ -603,8 +600,8 @@ class _$FetchErrorImpl implements _FetchError {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactsListState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetched value)? fetched,
     TResult Function(_Loading value)? loading,
     TResult Function(_FetchError value)? fetchError,
     required TResult orElse(),

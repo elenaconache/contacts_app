@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
 import 'package:contacts_app/config/injector.dart';
-import 'package:contacts_app/model/contact.dart';
+import 'package:contacts_app/model/json_contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/service/log_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +29,7 @@ class AddContactBloc extends Bloc<AddContactEvent, AddContactState> {
     });
   }
 
-  void _onContactAdded(Emitter<AddContactState> emit, Contact contact) {
+  void _onContactAdded(Emitter<AddContactState> emit, JsonContact contact) {
     _contactsRepository.saveContact(contact: contact);
     emit(AddContactState.confirmed(contact: contact));
   }
@@ -42,7 +42,7 @@ class AddContactBloc extends Bloc<AddContactEvent, AddContactState> {
       getIt<LogService>().exception(error: Exception('Missing required fields.'), stackTrace: StackTrace.current);
     } else {
       add(AddContactEvent.added(
-        contact: Contact(
+        contact: JsonContact(
           contactId: Random().nextDouble().toString(),
           firstName: firstName!,
           lastName: lastName!,
