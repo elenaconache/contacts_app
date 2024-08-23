@@ -1,4 +1,6 @@
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
+import 'package:contacts_app/config/injector.dart';
+import 'package:contacts_app/shared/form_items_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,7 +15,6 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
     on<ContactFormEvent>(
       (event, emit) {
         event.when(
-          () {},
           fieldChanged: (key, value) => _onFieldChanged(event, emit, key, value),
         );
       },
@@ -23,8 +24,7 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
   void _onFieldChanged(ContactFormEvent event, Emitter<ContactFormState> emit, String key, String value) {
     final updatedFormItems =
         state.formItems.map((formItem) => formItem.key == key ? formItem.copyWith(value: value) : formItem).toList();
-    final isValid =
-        updatedFormItems.where((item) => item.isMandatory).toList().every((item) => item.value?.isNotEmpty ?? false);
+    final isValid = getIt<FormItemsHelper>().isValidForm(updatedFormItems);
     emit(
       isValid
           ? ContactFormState.valid(formItems: updatedFormItems)

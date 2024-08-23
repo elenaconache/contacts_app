@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Contact {
   int get entityId => throw _privateConstructorUsedError;
+  String get contactId => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $ContactCopyWith<$Res> {
   @useResult
   $Res call(
       {int entityId,
+      String contactId,
       String firstName,
       String lastName,
       String phoneNumber,
@@ -65,6 +67,7 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
   @override
   $Res call({
     Object? entityId = null,
+    Object? contactId = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -79,6 +82,10 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
           ? _value.entityId
           : entityId // ignore: cast_nullable_to_non_nullable
               as int,
+      contactId: null == contactId
+          ? _value.contactId
+          : contactId // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -124,6 +131,7 @@ abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
   @useResult
   $Res call(
       {int entityId,
+      String contactId,
       String firstName,
       String lastName,
       String phoneNumber,
@@ -148,6 +156,7 @@ class __$$ContactImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? entityId = null,
+    Object? contactId = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? phoneNumber = null,
@@ -162,6 +171,10 @@ class __$$ContactImplCopyWithImpl<$Res>
           ? _value.entityId
           : entityId // ignore: cast_nullable_to_non_nullable
               as int,
+      contactId: null == contactId
+          ? _value.contactId
+          : contactId // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -203,6 +216,7 @@ class __$$ContactImplCopyWithImpl<$Res>
 class _$ContactImpl extends _Contact {
   const _$ContactImpl(
       {required this.entityId,
+      required this.contactId,
       required this.firstName,
       required this.lastName,
       required this.phoneNumber,
@@ -215,6 +229,8 @@ class _$ContactImpl extends _Contact {
 
   @override
   final int entityId;
+  @override
+  final String contactId;
   @override
   final String firstName;
   @override
@@ -234,7 +250,7 @@ class _$ContactImpl extends _Contact {
 
   @override
   String toString() {
-    return 'Contact(entityId: $entityId, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, state: $state, zipCode: $zipCode)';
+    return 'Contact(entityId: $entityId, contactId: $contactId, firstName: $firstName, lastName: $lastName, phoneNumber: $phoneNumber, streetAddress1: $streetAddress1, streetAddress2: $streetAddress2, city: $city, state: $state, zipCode: $zipCode)';
   }
 
   @override
@@ -244,6 +260,8 @@ class _$ContactImpl extends _Contact {
             other is _$ContactImpl &&
             (identical(other.entityId, entityId) ||
                 other.entityId == entityId) &&
+            (identical(other.contactId, contactId) ||
+                other.contactId == contactId) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -260,8 +278,18 @@ class _$ContactImpl extends _Contact {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, entityId, firstName, lastName,
-      phoneNumber, streetAddress1, streetAddress2, city, state, zipCode);
+  int get hashCode => Object.hash(
+      runtimeType,
+      entityId,
+      contactId,
+      firstName,
+      lastName,
+      phoneNumber,
+      streetAddress1,
+      streetAddress2,
+      city,
+      state,
+      zipCode);
 
   /// Create a copy of Contact
   /// with the given fields replaced by the non-null parameter values.
@@ -275,6 +303,7 @@ class _$ContactImpl extends _Contact {
 abstract class _Contact extends Contact {
   const factory _Contact(
       {required final int entityId,
+      required final String contactId,
       required final String firstName,
       required final String lastName,
       required final String phoneNumber,
@@ -287,6 +316,8 @@ abstract class _Contact extends Contact {
 
   @override
   int get entityId;
+  @override
+  String get contactId;
   @override
   String get firstName;
   @override

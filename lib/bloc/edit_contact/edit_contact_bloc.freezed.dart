@@ -408,12 +408,43 @@ abstract class _UpdateRequested implements EditContactEvent {
 
 /// @nodoc
 mixin _$EditContactState {
-  Contact get contact => throw _privateConstructorUsedError;
-
-  /// Create a copy of EditContactState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $EditContactStateCopyWith<EditContactState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Contact contact) $default, {
+    required TResult Function() failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Contact contact)? $default, {
+    TResult? Function()? failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Contact contact)? $default, {
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_EditContactState value) $default, {
+    required TResult Function(_Failed value) failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_EditContactState value)? $default, {
+    TResult? Function(_Failed value)? failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_EditContactState value)? $default, {
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -422,10 +453,6 @@ abstract class $EditContactStateCopyWith<$Res> {
   factory $EditContactStateCopyWith(
           EditContactState value, $Res Function(EditContactState) then) =
       _$EditContactStateCopyWithImpl<$Res, EditContactState>;
-  @useResult
-  $Res call({Contact contact});
-
-  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -440,41 +467,16 @@ class _$EditContactStateCopyWithImpl<$Res, $Val extends EditContactState>
 
   /// Create a copy of EditContactState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? contact = null,
-  }) {
-    return _then(_value.copyWith(
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as Contact,
-    ) as $Val);
-  }
-
-  /// Create a copy of EditContactState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ContactCopyWith<$Res> get contact {
-    return $ContactCopyWith<$Res>(_value.contact, (value) {
-      return _then(_value.copyWith(contact: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$EditContactStateImplCopyWith<$Res>
-    implements $EditContactStateCopyWith<$Res> {
+abstract class _$$EditContactStateImplCopyWith<$Res> {
   factory _$$EditContactStateImplCopyWith(_$EditContactStateImpl value,
           $Res Function(_$EditContactStateImpl) then) =
       __$$EditContactStateImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Contact contact});
 
-  @override
   $ContactCopyWith<$Res> get contact;
 }
 
@@ -499,6 +501,16 @@ class __$$EditContactStateImplCopyWithImpl<$Res>
           : contact // ignore: cast_nullable_to_non_nullable
               as Contact,
     ));
+  }
+
+  /// Create a copy of EditContactState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
+      return _then(_value.copyWith(contact: value));
+    });
   }
 }
 
@@ -534,19 +546,184 @@ class _$EditContactStateImpl implements _EditContactState {
   _$$EditContactStateImplCopyWith<_$EditContactStateImpl> get copyWith =>
       __$$EditContactStateImplCopyWithImpl<_$EditContactStateImpl>(
           this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Contact contact) $default, {
+    required TResult Function() failed,
+  }) {
+    return $default(contact);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Contact contact)? $default, {
+    TResult? Function()? failed,
+  }) {
+    return $default?.call(contact);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Contact contact)? $default, {
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(contact);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_EditContactState value) $default, {
+    required TResult Function(_Failed value) failed,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_EditContactState value)? $default, {
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_EditContactState value)? $default, {
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _EditContactState implements EditContactState {
   const factory _EditContactState({required final Contact contact}) =
       _$EditContactStateImpl;
 
-  @override
   Contact get contact;
 
   /// Create a copy of EditContactState
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditContactStateImplCopyWith<_$EditContactStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FailedImplCopyWith<$Res> {
+  factory _$$FailedImplCopyWith(
+          _$FailedImpl value, $Res Function(_$FailedImpl) then) =
+      __$$FailedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FailedImplCopyWithImpl<$Res>
+    extends _$EditContactStateCopyWithImpl<$Res, _$FailedImpl>
+    implements _$$FailedImplCopyWith<$Res> {
+  __$$FailedImplCopyWithImpl(
+      _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EditContactState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FailedImpl implements _Failed {
+  const _$FailedImpl();
+
+  @override
+  String toString() {
+    return 'EditContactState.failed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FailedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Contact contact) $default, {
+    required TResult Function() failed,
+  }) {
+    return failed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(Contact contact)? $default, {
+    TResult? Function()? failed,
+  }) {
+    return failed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Contact contact)? $default, {
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_EditContactState value) $default, {
+    required TResult Function(_Failed value) failed,
+  }) {
+    return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_EditContactState value)? $default, {
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return failed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_EditContactState value)? $default, {
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failed implements EditContactState {
+  const factory _Failed() = _$FailedImpl;
 }

@@ -45,6 +45,7 @@ class ContactEntity {
 
   Contact get contact => Contact(
         entityId: id,
+        contactId: contactId,
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,

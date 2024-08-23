@@ -16,43 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ContactFormEvent {
+  String get key => throw _privateConstructorUsedError;
+  String get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(String key, String value) fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String key, String value)? fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(String key, String value)? fieldChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_FieldChanged value) fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactFormEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FieldChanged value)? fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_FieldChanged value)? fieldChanged,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of ContactFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ContactFormEventCopyWith<ContactFormEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +63,8 @@ abstract class $ContactFormEventCopyWith<$Res> {
   factory $ContactFormEventCopyWith(
           ContactFormEvent value, $Res Function(ContactFormEvent) then) =
       _$ContactFormEventCopyWithImpl<$Res, ContactFormEvent>;
+  @useResult
+  $Res call({String key, String value});
 }
 
 /// @nodoc
@@ -75,118 +79,32 @@ class _$ContactFormEventCopyWithImpl<$Res, $Val extends ContactFormEvent>
 
   /// Create a copy of ContactFormEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? value = null,
+  }) {
+    return _then(_value.copyWith(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ContactFormEventImplCopyWith<$Res> {
-  factory _$$ContactFormEventImplCopyWith(_$ContactFormEventImpl value,
-          $Res Function(_$ContactFormEventImpl) then) =
-      __$$ContactFormEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ContactFormEventImplCopyWithImpl<$Res>
-    extends _$ContactFormEventCopyWithImpl<$Res, _$ContactFormEventImpl>
-    implements _$$ContactFormEventImplCopyWith<$Res> {
-  __$$ContactFormEventImplCopyWithImpl(_$ContactFormEventImpl _value,
-      $Res Function(_$ContactFormEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ContactFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ContactFormEventImpl implements _ContactFormEvent {
-  const _$ContactFormEventImpl();
-
-  @override
-  String toString() {
-    return 'ContactFormEvent()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ContactFormEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(String key, String value) fieldChanged,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(String key, String value)? fieldChanged,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(String key, String value)? fieldChanged,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value) $default, {
-    required TResult Function(_FieldChanged value) fieldChanged,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactFormEvent value)? $default, {
-    TResult? Function(_FieldChanged value)? fieldChanged,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value)? $default, {
-    TResult Function(_FieldChanged value)? fieldChanged,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ContactFormEvent implements ContactFormEvent {
-  const factory _ContactFormEvent() = _$ContactFormEventImpl;
-}
-
-/// @nodoc
-abstract class _$$FieldChangedImplCopyWith<$Res> {
+abstract class _$$FieldChangedImplCopyWith<$Res>
+    implements $ContactFormEventCopyWith<$Res> {
   factory _$$FieldChangedImplCopyWith(
           _$FieldChangedImpl value, $Res Function(_$FieldChangedImpl) then) =
       __$$FieldChangedImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({String key, String value});
 }
@@ -257,8 +175,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(String key, String value) fieldChanged,
   }) {
     return fieldChanged(key, value);
@@ -266,8 +183,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String key, String value)? fieldChanged,
   }) {
     return fieldChanged?.call(key, value);
@@ -275,8 +191,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(String key, String value)? fieldChanged,
     required TResult orElse(),
   }) {
@@ -288,8 +203,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_FieldChanged value) fieldChanged,
   }) {
     return fieldChanged(this);
@@ -297,8 +211,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ContactFormEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FieldChanged value)? fieldChanged,
   }) {
     return fieldChanged?.call(this);
@@ -306,8 +219,7 @@ class _$FieldChangedImpl implements _FieldChanged {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ContactFormEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_FieldChanged value)? fieldChanged,
     required TResult orElse(),
   }) {
@@ -323,11 +235,14 @@ abstract class _FieldChanged implements ContactFormEvent {
       {required final String key,
       required final String value}) = _$FieldChangedImpl;
 
+  @override
   String get key;
+  @override
   String get value;
 
   /// Create a copy of ContactFormEvent
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FieldChangedImplCopyWith<_$FieldChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;

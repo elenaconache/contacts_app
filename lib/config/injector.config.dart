@@ -12,7 +12,8 @@ import 'package:contacts_app/config/register_module.dart' as _i691;
 import 'package:contacts_app/datasource/assets_helper.dart' as _i306;
 import 'package:contacts_app/datasource/database_helper.dart' as _i644;
 import 'package:contacts_app/objectbox.g.dart' as _i567;
-import 'package:contacts_app/service/log_service.dart' as _i359;
+import 'package:contacts_app/shared/form_items_helper.dart' as _i772;
+import 'package:contacts_app/shared/log_service.dart' as _i430;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
@@ -35,8 +36,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.store,
       preResolve: true,
     );
-    gh.lazySingleton<_i359.LogService>(
-        () => _i359.LogService(gh<_i974.Logger>()));
+    gh.lazySingleton<_i772.FormItemsHelper>(() => _i772.FormItemsHelper());
+    gh.lazySingleton<_i430.LogService>(
+        () => _i430.LogService(gh<_i974.Logger>()));
     gh.lazySingleton<_i644.DatabaseHelper>(
         () => _i644.DatabaseHelper(gh<_i567.Store>()));
     return this;

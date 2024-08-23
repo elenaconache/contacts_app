@@ -2,8 +2,9 @@ import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/datasource/assets_helper.dart';
 import 'package:contacts_app/datasource/database_helper.dart';
 import 'package:contacts_app/entity/contact_entity.dart';
+import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/model/json_contact.dart';
-import 'package:contacts_app/service/log_service.dart';
+import 'package:contacts_app/shared/log_service.dart';
 
 class ContactsRepository {
   final AssetsHelper _assetsService;
@@ -37,7 +38,11 @@ class ContactsRepository {
     _databaseHelper.insertContacts(contacts: entities);
   }
 
-  void saveContact({required JsonContact contact}) => _databaseHelper.insertContact(contact: contact.entity);
+  void saveContact({required JsonContact contact}) => _databaseHelper.upsertContact(contact: contact.entity);
+
+  void updateContact({required Contact contact}) => _databaseHelper.upsertContact(contact: contact.entity);
 
   void deleteContact({required int id}) => _databaseHelper.deleteContact(id: id);
+
+  Contact? getContact({required int id}) => _databaseHelper.getContact(id: id)?.contact;
 }

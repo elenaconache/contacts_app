@@ -2,7 +2,7 @@ import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/entity/contact_entity.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
-import 'package:contacts_app/service/log_service.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
