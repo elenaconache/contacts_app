@@ -32,14 +32,12 @@ class AddContactView extends StatelessWidget {
             title: const Text(createContactTitle),
             actions: [
               BlocBuilder<ContactFormBloc, ContactFormState>(
-                builder: (context, state) {
-                  return TextButton(
-                    onPressed: state.isValid
-                        ? () => context.read<AddContactBloc>().addContact(formItems: state.formItems)
-                        : null,
-                    child: const Text(doneLabel),
-                  );
-                },
+                builder: (context, state) => TextButton(
+                  onPressed: state.isValid
+                      ? () => context.read<AddContactBloc>().addContact(formItems: state.formItems)
+                      : null,
+                  child: const Text(doneLabel),
+                ),
               ),
             ],
           ),

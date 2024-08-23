@@ -15,3 +15,4 @@ const editLabel = 'Edit';
 const phoneLabel = 'Phone';
 const addressLabel = 'Address';
 const deleteContactLabel = 'Delete contact';
+const saveLabel = 'Save';

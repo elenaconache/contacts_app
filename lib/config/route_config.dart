@@ -29,7 +29,7 @@ final router = GoRouter(
             GoRoute(
               path: Routes.editContact.path,
               name: Routes.editContact.name,
-              builder: (_, __) => const EditContactView(),
+              builder: (_, state) => EditContactView(contact: state.extra as Contact),
             ),
           ],
         ),

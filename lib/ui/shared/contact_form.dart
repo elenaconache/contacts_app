@@ -18,11 +18,12 @@ class ContactForm extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = formItems[index];
               return Padding(
-                padding: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: 16),
                 child: AppTextField(
                   hint: '${item.hint}${item.isMandatory ? '*' : ''}',
                   action: index == formItems.length - 1 ? TextInputAction.done : TextInputAction.next,
                   onChanged: (value) => context.read<ContactFormBloc>().updateField(key: item.key, value: value),
+                  initialValue: item.value,
                 ),
               );
             },

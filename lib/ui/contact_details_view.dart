@@ -1,4 +1,5 @@
 import 'package:contacts_app/bloc/contact_bloc/contact_bloc.dart';
+import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/ui/shared/labelled_text.dart';
@@ -30,7 +31,7 @@ class ContactDetailsView extends StatelessWidget {
               orElse: () => [],
               fetched: (_) => [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => _onEditPressed(context),
                   child: const Text(editLabel),
                 )
               ],
@@ -85,4 +86,6 @@ class ContactDetailsView extends StatelessWidget {
   }
 
   void _onDeleted(BuildContext context) => context.pop(true);
+
+  void _onEditPressed(BuildContext context) => context.pushNamed(Routes.editContact.name, extra: contact);
 }
