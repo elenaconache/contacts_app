@@ -19,15 +19,27 @@ class ContactsRepository {
         _logService = logService;
 
   Future<List<JsonContact>> getInitialContacts({required String path}) async {
+    _logService.t('Waiting for artificial delay to pass...');
+    await Future.delayed(const Duration(milliseconds: 600));
+    _logService.t('Artificial delay has passed.');
+
     final json = await _assetsService.parseListFromJson(path: path);
     final contacts = _parseContactsList(json);
-    _logService.debug('Parsed JSON contacts: ${contacts.map((contact) => contact.firstName)}');
+    if (contacts.isEmpty) {
+      _logService.w('Provided JSON contacts list was empty.');
+    } else {
+      _logService.d('Parsed JSON contacts: ${contacts.map((contact) => contact.firstName)}');
+    }
     return contacts;
   }
 
-  bool hasLocalContacts() {
+  Future<bool> hasLocalContacts() async {
+    _logService.t('Waiting for artificial delay to pass...');
+    await Future.delayed(const Duration(milliseconds: 600));
+    _logService.t('Artificial delay has passed.');
+
     final hasContacts = _databaseHelper.hasContacts();
-    _logService.debug('Has local contacts: $hasContacts');
+    _logService.d('Has local contacts: $hasContacts');
     return hasContacts;
   }
 
@@ -50,7 +62,7 @@ class ContactsRepository {
 
   Contact? getContact({required int id}) {
     final result = _databaseHelper.getContact(id: id)?.contact;
-    _logService.debug('Contact by id: $result');
+    _logService.d('Contact by id: $result');
     return result;
   }
 }

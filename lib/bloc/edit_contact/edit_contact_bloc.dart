@@ -62,7 +62,7 @@ class EditContactBloc extends Bloc<EditContactEvent, EditContactState> {
       );
       add(EditContactEvent.updateRequested(contact: updatedContact));
     } else {
-      _logService.exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
+      _logService.w('Invalid form');
     }
   }
 }

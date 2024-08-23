@@ -1,3 +1,4 @@
+import 'package:contacts_app/bloc/app_bloc_observer.dart';
 import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/config/route_config.dart';
 import 'package:contacts_app/datasource/assets_helper.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
 
+  Bloc.observer = getIt<AppBlocObserver>();
   final contactsRepository = ContactsRepository(
     assetsHelper: getIt<AssetsHelper>(),
     databaseHelper: getIt<DatabaseHelper>(),

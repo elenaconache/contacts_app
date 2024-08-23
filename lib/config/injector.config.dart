@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:contacts_app/bloc/app_bloc_observer.dart' as _i425;
 import 'package:contacts_app/config/register_module.dart' as _i691;
 import 'package:contacts_app/datasource/assets_helper.dart' as _i306;
 import 'package:contacts_app/datasource/database_helper.dart' as _i644;
@@ -39,6 +40,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i772.FormItemsHelper>(() => _i772.FormItemsHelper());
     gh.lazySingleton<_i430.LogService>(
         () => _i430.LogService(gh<_i974.Logger>()));
+    gh.lazySingleton<_i425.AppBlocObserver>(
+        () => _i425.AppBlocObserver(logService: gh<_i430.LogService>()));
     gh.lazySingleton<_i644.DatabaseHelper>(() => _i644.DatabaseHelper(
           gh<_i567.Store>(),
           gh<_i430.LogService>(),

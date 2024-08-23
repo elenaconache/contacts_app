@@ -42,7 +42,7 @@ class AddContactBloc extends Bloc<AddContactEvent, AddContactState> {
 
   void addContact({required List<FormItemData> formItems}) {
     if (!_formHelper.isValidForm(formItems)) {
-      _logService.exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
+      _logService.w('Invalid form');
     } else {
       add(AddContactEvent.added(
         contact: JsonContact(

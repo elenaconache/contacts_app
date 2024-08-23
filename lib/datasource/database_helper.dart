@@ -15,24 +15,24 @@ class DatabaseHelper {
   void insertContacts({required List<ContactEntity> contacts}) {
     try {
       final ids = _contactBox.putMany(contacts);
-      _logService.debug('Saved objects with ids: $ids');
+      _logService.d('Saved objects with ids: $ids');
     } on ObjectBoxException catch (error, stackTrace) {
-      _logService.exception(error: error, stackTrace: stackTrace);
+      _logService.e(error: error, stackTrace: stackTrace);
     }
   }
 
   void upsertContact({required ContactEntity contact}) {
     try {
       final id = _contactBox.put(contact);
-      _logService.debug('Saved object with id: $id');
+      _logService.d('Saved object with id: $id');
     } on ObjectBoxException catch (error, stackTrace) {
-      _logService.exception(error: error, stackTrace: stackTrace);
+      _logService.e(error: error, stackTrace: stackTrace);
     }
   }
 
   void deleteContact({required int id}) {
     final removed = _contactBox.remove(id);
-    _logService.debug('Removing object with id $id, status: ${removed ? 'Success' : 'Failed'}');
+    _logService.d('Removing object with id $id, status: ${removed ? 'Success' : 'Failed'}');
   }
 
   ContactEntity? getContact({required int id}) => _contactBox.get(id);

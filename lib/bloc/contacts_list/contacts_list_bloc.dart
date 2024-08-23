@@ -28,15 +28,15 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
 
   Future<void> _onSubscriptionRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
     emit(const ContactsListState.loading());
-    await Future.delayed(const Duration(milliseconds: 600));
-
-    final hasLocalContacts = _contactsRepository.hasLocalContacts();
+    final hasLocalContacts = await _contactsRepository.hasLocalContacts();
     if (!hasLocalContacts) {
+      _logService.t('Fetching contacts from JSON file...');
       await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) async {
+        _logService.t('Saving contacts...');
         _contactsRepository.saveContacts(contacts: contacts);
         await _subscribeToQuery(emit);
       }).catchError((error, stackTrace) {
-        _logService.exception(error: error, stackTrace: stackTrace);
+        _logService.e(error: error, stackTrace: stackTrace);
         emit(const ContactsListState.fetchError());
       });
     } else {
@@ -45,11 +45,12 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
   }
 
   Future<void> _subscribeToQuery(Emitter<ContactsListState> emit) {
+    _logService.t('Listening for contacts database query...');
     return emit.forEach<List<ContactEntity>>(
       _contactsRepository.watchLocalContacts(),
       onData: (contactEntities) => ContactsListState.fetched(contacts: _mapContacts(contactEntities)),
       onError: (error, stackTrace) {
-        _logService.exception(error: error, stackTrace: stackTrace);
+        _logService.e(error: error, stackTrace: stackTrace);
         return const ContactsListState.fetchError();
       },
     );

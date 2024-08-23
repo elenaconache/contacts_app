@@ -7,8 +7,14 @@ class LogService {
 
   LogService(this._logger);
 
-  void exception({required dynamic error, required StackTrace stackTrace}) =>
+  void e({required dynamic error, required StackTrace stackTrace}) =>
       _logger.e('Exception', stackTrace: stackTrace, error: error);
 
-  void debug(String message) => _logger.d(message);
+  void d(String message) => _logger.d(message, time: DateTime.now());
+
+  void t(String message) => _logger.d(message, time: DateTime.now());
+
+  void w(String message) => _logger.w(message, time: DateTime.now());
+
+  void i(String message) => _logger.i(message, time: DateTime.now());
 }

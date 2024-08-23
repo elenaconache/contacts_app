@@ -7,7 +7,7 @@ import 'package:path/path.dart';
 @module
 abstract class RegisterModule {
   @lazySingleton
-  Logger get logger => Logger();
+  Logger get logger => Logger(printer: PrefixPrinter(PrettyPrinter(methodCount: 3, colors: false)));
 
   @lazySingleton
   @preResolve
