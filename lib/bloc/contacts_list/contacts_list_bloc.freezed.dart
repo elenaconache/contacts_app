@@ -18,34 +18,34 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ContactsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() contactsListRequested,
+    required TResult Function() subscriptionRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? contactsListRequested,
+    TResult? Function()? subscriptionRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? contactsListRequested,
+    TResult Function()? subscriptionRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ContactsListRequested value)
-        contactsListRequested,
+    required TResult Function(_SubscriptionRequested value)
+        subscriptionRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ContactsListRequested value)? contactsListRequested,
+    TResult? Function(_SubscriptionRequested value)? subscriptionRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ContactsListRequested value)? contactsListRequested,
+    TResult Function(_SubscriptionRequested value)? subscriptionRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,19 +73,19 @@ class _$ContactsListEventCopyWithImpl<$Res, $Val extends ContactsListEvent>
 }
 
 /// @nodoc
-abstract class _$$ContactsListRequestedImplCopyWith<$Res> {
-  factory _$$ContactsListRequestedImplCopyWith(
-          _$ContactsListRequestedImpl value,
-          $Res Function(_$ContactsListRequestedImpl) then) =
-      __$$ContactsListRequestedImplCopyWithImpl<$Res>;
+abstract class _$$SubscriptionRequestedImplCopyWith<$Res> {
+  factory _$$SubscriptionRequestedImplCopyWith(
+          _$SubscriptionRequestedImpl value,
+          $Res Function(_$SubscriptionRequestedImpl) then) =
+      __$$SubscriptionRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ContactsListRequestedImplCopyWithImpl<$Res>
-    extends _$ContactsListEventCopyWithImpl<$Res, _$ContactsListRequestedImpl>
-    implements _$$ContactsListRequestedImplCopyWith<$Res> {
-  __$$ContactsListRequestedImplCopyWithImpl(_$ContactsListRequestedImpl _value,
-      $Res Function(_$ContactsListRequestedImpl) _then)
+class __$$SubscriptionRequestedImplCopyWithImpl<$Res>
+    extends _$ContactsListEventCopyWithImpl<$Res, _$SubscriptionRequestedImpl>
+    implements _$$SubscriptionRequestedImplCopyWith<$Res> {
+  __$$SubscriptionRequestedImplCopyWithImpl(_$SubscriptionRequestedImpl _value,
+      $Res Function(_$SubscriptionRequestedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ContactsListEvent
@@ -94,19 +94,19 @@ class __$$ContactsListRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ContactsListRequestedImpl implements _ContactsListRequested {
-  const _$ContactsListRequestedImpl();
+class _$SubscriptionRequestedImpl implements _SubscriptionRequested {
+  const _$SubscriptionRequestedImpl();
 
   @override
   String toString() {
-    return 'ContactsListEvent.contactsListRequested()';
+    return 'ContactsListEvent.subscriptionRequested()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContactsListRequestedImpl);
+            other is _$SubscriptionRequestedImpl);
   }
 
   @override
@@ -115,27 +115,27 @@ class _$ContactsListRequestedImpl implements _ContactsListRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() contactsListRequested,
+    required TResult Function() subscriptionRequested,
   }) {
-    return contactsListRequested();
+    return subscriptionRequested();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? contactsListRequested,
+    TResult? Function()? subscriptionRequested,
   }) {
-    return contactsListRequested?.call();
+    return subscriptionRequested?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? contactsListRequested,
+    TResult Function()? subscriptionRequested,
     required TResult orElse(),
   }) {
-    if (contactsListRequested != null) {
-      return contactsListRequested();
+    if (subscriptionRequested != null) {
+      return subscriptionRequested();
     }
     return orElse();
   }
@@ -143,35 +143,35 @@ class _$ContactsListRequestedImpl implements _ContactsListRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ContactsListRequested value)
-        contactsListRequested,
+    required TResult Function(_SubscriptionRequested value)
+        subscriptionRequested,
   }) {
-    return contactsListRequested(this);
+    return subscriptionRequested(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ContactsListRequested value)? contactsListRequested,
+    TResult? Function(_SubscriptionRequested value)? subscriptionRequested,
   }) {
-    return contactsListRequested?.call(this);
+    return subscriptionRequested?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ContactsListRequested value)? contactsListRequested,
+    TResult Function(_SubscriptionRequested value)? subscriptionRequested,
     required TResult orElse(),
   }) {
-    if (contactsListRequested != null) {
-      return contactsListRequested(this);
+    if (subscriptionRequested != null) {
+      return subscriptionRequested(this);
     }
     return orElse();
   }
 }
 
-abstract class _ContactsListRequested implements ContactsListEvent {
-  const factory _ContactsListRequested() = _$ContactsListRequestedImpl;
+abstract class _SubscriptionRequested implements ContactsListEvent {
+  const factory _SubscriptionRequested() = _$SubscriptionRequestedImpl;
 }
 
 /// @nodoc

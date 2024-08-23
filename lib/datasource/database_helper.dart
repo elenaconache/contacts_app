@@ -33,4 +33,9 @@ class DatabaseHelper {
   List<ContactEntity> getContacts() => _contactBox.getAll();
 
   ContactEntity? getContact({required int id}) => _contactBox.get(id);
+
+  Stream<List<ContactEntity>> watchContacts() =>
+      _contactBox.query().watch(triggerImmediately: true).map((query) => query.find());
+
+  bool hasContacts() => !_contactBox.isEmpty();
 }

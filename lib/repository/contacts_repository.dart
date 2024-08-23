@@ -23,11 +23,13 @@ class ContactsRepository {
     return contacts;
   }
 
-  List<ContactEntity> getLocalContacts() {
-    final storedContacts = _databaseHelper.getContacts();
-    getIt<LogService>().debug('Database contacts: ${storedContacts.map((entity) => entity.firstName)}');
-    return storedContacts;
+  bool hasLocalContacts() {
+    final hasContacts = _databaseHelper.hasContacts();
+    getIt<LogService>().debug('Has local contacts: $hasContacts');
+    return hasContacts;
   }
+
+  Stream<List<ContactEntity>> watchLocalContacts() => _databaseHelper.watchContacts();
 
   List<JsonContact> _parseContactsList(List<dynamic> list) => List<JsonContact>.from(
         list.map((json) => JsonContact.fromJson(json)),

@@ -19,32 +19,38 @@ mixin _$ContactEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() deleteRequested,
+    required TResult Function(Contact contact) edited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deleteRequested,
+    TResult? Function(Contact contact)? edited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deleteRequested,
+    TResult Function(Contact contact)? edited,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeleteRequested value) deleteRequested,
+    required TResult Function(_Edited value) edited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeleteRequested value)? deleteRequested,
+    TResult? Function(_Edited value)? edited,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DeleteRequested value)? deleteRequested,
+    TResult Function(_Edited value)? edited,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() deleteRequested,
+    required TResult Function(Contact contact) edited,
   }) {
     return deleteRequested();
   }
@@ -121,6 +128,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deleteRequested,
+    TResult? Function(Contact contact)? edited,
   }) {
     return deleteRequested?.call();
   }
@@ -129,6 +137,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deleteRequested,
+    TResult Function(Contact contact)? edited,
     required TResult orElse(),
   }) {
     if (deleteRequested != null) {
@@ -141,6 +150,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeleteRequested value) deleteRequested,
+    required TResult Function(_Edited value) edited,
   }) {
     return deleteRequested(this);
   }
@@ -149,6 +159,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeleteRequested value)? deleteRequested,
+    TResult? Function(_Edited value)? edited,
   }) {
     return deleteRequested?.call(this);
   }
@@ -157,6 +168,7 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DeleteRequested value)? deleteRequested,
+    TResult Function(_Edited value)? edited,
     required TResult orElse(),
   }) {
     if (deleteRequested != null) {
@@ -168,6 +180,158 @@ class _$DeleteRequestedImpl implements _DeleteRequested {
 
 abstract class _DeleteRequested implements ContactEvent {
   const factory _DeleteRequested() = _$DeleteRequestedImpl;
+}
+
+/// @nodoc
+abstract class _$$EditedImplCopyWith<$Res> {
+  factory _$$EditedImplCopyWith(
+          _$EditedImpl value, $Res Function(_$EditedImpl) then) =
+      __$$EditedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Contact contact});
+
+  $ContactCopyWith<$Res> get contact;
+}
+
+/// @nodoc
+class __$$EditedImplCopyWithImpl<$Res>
+    extends _$ContactEventCopyWithImpl<$Res, _$EditedImpl>
+    implements _$$EditedImplCopyWith<$Res> {
+  __$$EditedImplCopyWithImpl(
+      _$EditedImpl _value, $Res Function(_$EditedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ContactEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? contact = null,
+  }) {
+    return _then(_$EditedImpl(
+      contact: null == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact,
+    ));
+  }
+
+  /// Create a copy of ContactEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
+      return _then(_value.copyWith(contact: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$EditedImpl implements _Edited {
+  const _$EditedImpl({required this.contact});
+
+  @override
+  final Contact contact;
+
+  @override
+  String toString() {
+    return 'ContactEvent.edited(contact: $contact)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditedImpl &&
+            (identical(other.contact, contact) || other.contact == contact));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, contact);
+
+  /// Create a copy of ContactEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditedImplCopyWith<_$EditedImpl> get copyWith =>
+      __$$EditedImplCopyWithImpl<_$EditedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() deleteRequested,
+    required TResult Function(Contact contact) edited,
+  }) {
+    return edited(contact);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? deleteRequested,
+    TResult? Function(Contact contact)? edited,
+  }) {
+    return edited?.call(contact);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? deleteRequested,
+    TResult Function(Contact contact)? edited,
+    required TResult orElse(),
+  }) {
+    if (edited != null) {
+      return edited(contact);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DeleteRequested value) deleteRequested,
+    required TResult Function(_Edited value) edited,
+  }) {
+    return edited(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DeleteRequested value)? deleteRequested,
+    TResult? Function(_Edited value)? edited,
+  }) {
+    return edited?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DeleteRequested value)? deleteRequested,
+    TResult Function(_Edited value)? edited,
+    required TResult orElse(),
+  }) {
+    if (edited != null) {
+      return edited(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Edited implements ContactEvent {
+  const factory _Edited({required final Contact contact}) = _$EditedImpl;
+
+  Contact get contact;
+
+  /// Create a copy of ContactEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditedImplCopyWith<_$EditedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

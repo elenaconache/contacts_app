@@ -18,6 +18,7 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
     on<ContactEvent>((event, emit) {
       event.when(
         deleteRequested: () => _onContactDeleteRequested(emit, contact.entityId),
+        edited: (contact) => _onContactEdited(emit, contact),
       );
     });
   }
@@ -28,4 +29,9 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
   }
 
   void requestDelete() => add(const ContactEvent.deleteRequested());
+
+  void _onContactEdited(Emitter<ContactState> emit, Contact updatedContact) =>
+      emit(ContactState.fetched(contact: updatedContact));
+
+  void requestUpdate({required Contact updatedContact}) => add(ContactEvent.edited(contact: updatedContact));
 }

@@ -20,28 +20,38 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
         super(const ContactsListState.loading()) {
     on<ContactsListEvent>((event, emit) async {
       await event.when(
-        contactsListRequested: () => _onContactsListRequested(event, emit),
+        subscriptionRequested: () => _onSubscriptionRequested(event, emit),
       );
     });
   }
 
-  Future<void> _onContactsListRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
+  Future<void> _onSubscriptionRequested(ContactsListEvent event, Emitter<ContactsListState> emit) async {
     emit(const ContactsListState.loading());
     await Future.delayed(const Duration(milliseconds: 600));
-    //TODO: implement get count to check if local data exists
-    final localContacts = _contactsRepository.getLocalContacts();
-    if (localContacts.isEmpty) {
-      await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) {
+
+    final hasLocalContacts = _contactsRepository.hasLocalContacts();
+    if (!hasLocalContacts) {
+      await _contactsRepository.getInitialContacts(path: 'assets/contacts.json').then((contacts) async {
         _contactsRepository.saveContacts(contacts: contacts);
-        final importedContacts = _contactsRepository.getLocalContacts();
-        emit(ContactsListState.fetched(contacts: _mapContacts(importedContacts)));
+        await _subscribeToQuery(emit);
       }).catchError((error, stackTrace) {
         getIt<LogService>().exception(error: error, stackTrace: stackTrace);
         emit(const ContactsListState.fetchError());
       });
     } else {
-      emit(ContactsListState.fetched(contacts: _mapContacts(localContacts)));
+      await _subscribeToQuery(emit);
     }
+  }
+
+  Future<void> _subscribeToQuery(Emitter<ContactsListState> emit) {
+    return emit.forEach<List<ContactEntity>>(
+      _contactsRepository.watchLocalContacts(),
+      onData: (contactEntities) => ContactsListState.fetched(contacts: _mapContacts(contactEntities)),
+      onError: (error, stackTrace) {
+        getIt<LogService>().exception(error: error, stackTrace: stackTrace);
+        return const ContactsListState.fetchError();
+      },
+    );
   }
 
   List<Contact> _mapContacts(List<ContactEntity> entities) => entities.map((entity) => entity.contact).toList();
