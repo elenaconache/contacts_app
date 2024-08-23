@@ -1,4 +1,3 @@
-import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/datasource/assets_helper.dart';
 import 'package:contacts_app/datasource/database_helper.dart';
 import 'package:contacts_app/entity/contact_entity.dart';
@@ -9,23 +8,26 @@ import 'package:contacts_app/shared/log_service.dart';
 class ContactsRepository {
   final AssetsHelper _assetsService;
   final DatabaseHelper _databaseHelper;
+  final LogService _logService;
 
   ContactsRepository({
     required AssetsHelper assetsHelper,
     required DatabaseHelper databaseHelper,
+    required LogService logService,
   })  : _assetsService = assetsHelper,
-        _databaseHelper = databaseHelper;
+        _databaseHelper = databaseHelper,
+        _logService = logService;
 
   Future<List<JsonContact>> getInitialContacts({required String path}) async {
     final json = await _assetsService.parseListFromJson(path: path);
     final contacts = _parseContactsList(json);
-    getIt<LogService>().debug('JSON contacts: ${contacts.map((contact) => contact.firstName)}');
+    _logService.debug('Parsed JSON contacts: ${contacts.map((contact) => contact.firstName)}');
     return contacts;
   }
 
   bool hasLocalContacts() {
     final hasContacts = _databaseHelper.hasContacts();
-    getIt<LogService>().debug('Has local contacts: $hasContacts');
+    _logService.debug('Has local contacts: $hasContacts');
     return hasContacts;
   }
 
@@ -46,5 +48,9 @@ class ContactsRepository {
 
   void deleteContact({required int id}) => _databaseHelper.deleteContact(id: id);
 
-  Contact? getContact({required int id}) => _databaseHelper.getContact(id: id)?.contact;
+  Contact? getContact({required int id}) {
+    final result = _databaseHelper.getContact(id: id)?.contact;
+    _logService.debug('Contact by id: $result');
+    return result;
+  }
 }

@@ -2,8 +2,11 @@ import 'package:contacts_app/bloc/add_contact/add_contact_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/contact_form_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
+import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/model/json_contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
+import 'package:contacts_app/shared/form_items_helper.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:contacts_app/ui/shared/contact_form.dart';
 import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +20,16 @@ class AddContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ContactFormBloc(formItems: _initialFormItems)),
-        BlocProvider(create: (_) => AddContactBloc(contactsRepository: context.read<ContactsRepository>())),
+        BlocProvider(
+          create: (_) => ContactFormBloc(formHelper: getIt<FormItemsHelper>(), formItems: _initialFormItems),
+        ),
+        BlocProvider(
+          create: (_) => AddContactBloc(
+            contactsRepository: context.read<ContactsRepository>(),
+            logService: getIt<LogService>(),
+            formHelper: getIt<FormItemsHelper>(),
+          ),
+        ),
       ],
       child: BlocListener<AddContactBloc, AddContactState>(
         listener: (context, state) {

@@ -39,8 +39,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i772.FormItemsHelper>(() => _i772.FormItemsHelper());
     gh.lazySingleton<_i430.LogService>(
         () => _i430.LogService(gh<_i974.Logger>()));
-    gh.lazySingleton<_i644.DatabaseHelper>(
-        () => _i644.DatabaseHelper(gh<_i567.Store>()));
+    gh.lazySingleton<_i644.DatabaseHelper>(() => _i644.DatabaseHelper(
+          gh<_i567.Store>(),
+          gh<_i430.LogService>(),
+        ));
     return this;
   }
 }

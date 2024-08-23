@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
-import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/model/json_contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/shared/form_items_helper.dart';
@@ -18,9 +17,16 @@ part 'add_contact_bloc.freezed.dart';
 
 class AddContactBloc extends Bloc<AddContactEvent, AddContactState> {
   final ContactsRepository _contactsRepository;
+  final FormItemsHelper _formHelper;
+  final LogService _logService;
 
-  AddContactBloc({required ContactsRepository contactsRepository})
-      : _contactsRepository = contactsRepository,
+  AddContactBloc({
+    required ContactsRepository contactsRepository,
+    required FormItemsHelper formHelper,
+    required LogService logService,
+  })  : _contactsRepository = contactsRepository,
+        _formHelper = formHelper,
+        _logService = logService,
         super(const AddContactState.pending()) {
     on<AddContactEvent>((event, emit) {
       event.when(
@@ -35,21 +41,20 @@ class AddContactBloc extends Bloc<AddContactEvent, AddContactState> {
   }
 
   void addContact({required List<FormItemData> formItems}) {
-    final formItemsHelper = getIt<FormItemsHelper>();
-    if (!formItemsHelper.isValidForm(formItems)) {
-      getIt<LogService>().exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
+    if (!_formHelper.isValidForm(formItems)) {
+      _logService.exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
     } else {
       add(AddContactEvent.added(
         contact: JsonContact(
           contactId: Random().nextDouble().toString(),
-          firstName: formItemsHelper.getFormItemValue(formItems, firstNameKey)!,
-          lastName: formItemsHelper.getFormItemValue(formItems, lastNameKey)!,
-          phoneNumber: formItemsHelper.getFormItemValue(formItems, phoneKey)!,
-          zipCode: formItemsHelper.getFormItemValue(formItems, zipCodeKey),
-          streetAddress1: formItemsHelper.getFormItemValue(formItems, streetAddress1Key),
-          streetAddress2: formItemsHelper.getFormItemValue(formItems, streetAddress2Key),
-          state: formItemsHelper.getFormItemValue(formItems, stateKey),
-          city: formItemsHelper.getFormItemValue(formItems, cityKey),
+          firstName: _formHelper.getFormItemValue(formItems, firstNameKey)!,
+          lastName: _formHelper.getFormItemValue(formItems, lastNameKey)!,
+          phoneNumber: _formHelper.getFormItemValue(formItems, phoneKey)!,
+          zipCode: _formHelper.getFormItemValue(formItems, zipCodeKey),
+          streetAddress1: _formHelper.getFormItemValue(formItems, streetAddress1Key),
+          streetAddress2: _formHelper.getFormItemValue(formItems, streetAddress2Key),
+          state: _formHelper.getFormItemValue(formItems, stateKey),
+          city: _formHelper.getFormItemValue(formItems, cityKey),
         ),
       ));
     }

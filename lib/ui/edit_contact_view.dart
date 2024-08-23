@@ -2,8 +2,11 @@ import 'package:contacts_app/bloc/contact_form/contact_form_bloc.dart';
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
 import 'package:contacts_app/bloc/edit_contact/edit_contact_bloc.dart';
+import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
+import 'package:contacts_app/shared/form_items_helper.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:contacts_app/ui/shared/contact_form.dart';
 import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +23,14 @@ class EditContactView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ContactFormBloc>(
-          create: (_) => ContactFormBloc(formItems: _initialFormItems),
+          create: (_) => ContactFormBloc(formHelper: getIt<FormItemsHelper>(), formItems: _initialFormItems),
         ),
         BlocProvider(
           create: (_) => EditContactBloc(
             contact: contact,
             contactsRepository: context.read<ContactsRepository>(),
+            logService: getIt<LogService>(),
+            formItemsHelper: getIt<FormItemsHelper>(),
           ),
         )
       ],

@@ -1,7 +1,9 @@
 import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
+import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:contacts_app/ui/contacts_list/contact_item.dart';
 import 'package:contacts_app/ui/shared/strings.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class ContactsListView extends StatelessWidget {
     return BlocProvider<ContactsListBloc>(
       create: (context) => ContactsListBloc(
         contactsRepository: context.read<ContactsRepository>(),
+        logService: getIt<LogService>(),
       )..add(const ContactsListEvent.subscriptionRequested()),
       child: Scaffold(
         appBar: AppBar(

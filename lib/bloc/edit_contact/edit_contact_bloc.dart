@@ -1,6 +1,5 @@
 import 'package:contacts_app/bloc/contact_form/form_item_data.dart';
 import 'package:contacts_app/bloc/contact_form/keys.dart';
-import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
 import 'package:contacts_app/shared/form_items_helper.dart';
@@ -17,9 +16,17 @@ part 'edit_contact_bloc.freezed.dart';
 class EditContactBloc extends Bloc<EditContactEvent, EditContactState> {
   final Contact _initialContact;
   final ContactsRepository _contactsRepository;
+  final FormItemsHelper _formItemsHelper;
+  final LogService _logService;
 
-  EditContactBloc({required ContactsRepository contactsRepository, required Contact contact})
+  EditContactBloc(
+      {required ContactsRepository contactsRepository,
+      required FormItemsHelper formItemsHelper,
+      required LogService logService,
+      required Contact contact})
       : _contactsRepository = contactsRepository,
+        _formItemsHelper = formItemsHelper,
+        _logService = logService,
         _initialContact = contact,
         super(EditContactState(contact: contact)) {
     on<EditContactEvent>((event, emit) {
@@ -41,22 +48,21 @@ class EditContactBloc extends Bloc<EditContactEvent, EditContactState> {
   }
 
   void requestContactUpdate({required List<FormItemData> formItems}) {
-    final formItemsHelper = getIt<FormItemsHelper>();
-    final isValid = formItemsHelper.isValidForm(formItems);
+    final isValid = _formItemsHelper.isValidForm(formItems);
     if (isValid) {
       final updatedContact = _initialContact.copyWith(
-        firstName: formItemsHelper.getFormItemValue(formItems, firstNameKey)!,
-        lastName: formItemsHelper.getFormItemValue(formItems, lastNameKey)!,
-        phoneNumber: formItemsHelper.getFormItemValue(formItems, phoneKey)!,
-        zipCode: formItemsHelper.getFormItemValue(formItems, zipCodeKey),
-        streetAddress1: formItemsHelper.getFormItemValue(formItems, streetAddress1Key),
-        streetAddress2: formItemsHelper.getFormItemValue(formItems, streetAddress2Key),
-        state: formItemsHelper.getFormItemValue(formItems, stateKey),
-        city: formItemsHelper.getFormItemValue(formItems, cityKey),
+        firstName: _formItemsHelper.getFormItemValue(formItems, firstNameKey)!,
+        lastName: _formItemsHelper.getFormItemValue(formItems, lastNameKey)!,
+        phoneNumber: _formItemsHelper.getFormItemValue(formItems, phoneKey)!,
+        zipCode: _formItemsHelper.getFormItemValue(formItems, zipCodeKey),
+        streetAddress1: _formItemsHelper.getFormItemValue(formItems, streetAddress1Key),
+        streetAddress2: _formItemsHelper.getFormItemValue(formItems, streetAddress2Key),
+        state: _formItemsHelper.getFormItemValue(formItems, stateKey),
+        city: _formItemsHelper.getFormItemValue(formItems, cityKey),
       );
       add(EditContactEvent.updateRequested(contact: updatedContact));
     } else {
-      getIt<LogService>().exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
+      _logService.exception(error: Exception('Invalid form'), stackTrace: StackTrace.current);
     }
   }
 }

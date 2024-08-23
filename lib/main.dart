@@ -3,6 +3,7 @@ import 'package:contacts_app/config/route_config.dart';
 import 'package:contacts_app/datasource/assets_helper.dart';
 import 'package:contacts_app/datasource/database_helper.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +14,7 @@ Future<void> main() async {
   final contactsRepository = ContactsRepository(
     assetsHelper: getIt<AssetsHelper>(),
     databaseHelper: getIt<DatabaseHelper>(),
+    logService: getIt<LogService>(),
   );
   runApp(ContactsApp(contactsRepository: contactsRepository));
 }

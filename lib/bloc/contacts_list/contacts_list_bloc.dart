@@ -1,4 +1,3 @@
-import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/entity/contact_entity.dart';
 import 'package:contacts_app/model/contact.dart';
 import 'package:contacts_app/repository/contacts_repository.dart';
@@ -14,9 +13,11 @@ part 'contacts_list_bloc.freezed.dart';
 
 class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
   final ContactsRepository _contactsRepository;
+  final LogService _logService;
 
-  ContactsListBloc({required ContactsRepository contactsRepository})
+  ContactsListBloc({required ContactsRepository contactsRepository, required LogService logService})
       : _contactsRepository = contactsRepository,
+        _logService = logService,
         super(const ContactsListState.loading()) {
     on<ContactsListEvent>((event, emit) async {
       await event.when(
@@ -35,7 +36,7 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
         _contactsRepository.saveContacts(contacts: contacts);
         await _subscribeToQuery(emit);
       }).catchError((error, stackTrace) {
-        getIt<LogService>().exception(error: error, stackTrace: stackTrace);
+        _logService.exception(error: error, stackTrace: stackTrace);
         emit(const ContactsListState.fetchError());
       });
     } else {
@@ -48,7 +49,7 @@ class ContactsListBloc extends Bloc<ContactsListEvent, ContactsListState> {
       _contactsRepository.watchLocalContacts(),
       onData: (contactEntities) => ContactsListState.fetched(contacts: _mapContacts(contactEntities)),
       onError: (error, stackTrace) {
-        getIt<LogService>().exception(error: error, stackTrace: stackTrace);
+        _logService.exception(error: error, stackTrace: stackTrace);
         return const ContactsListState.fetchError();
       },
     );
