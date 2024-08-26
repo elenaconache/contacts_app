@@ -18,10 +18,9 @@ logging, and Go Router for navigation.
 - **BLoC:** Handles all the business logic of the app and provides data to the UI.
 - **UI:** The user interface layer that consumes data from BLoC and displays it to the user. It
   reacts to changes in the data emitted by the BLoC.
-- **Repository:** Acts as a single source of truth for fetching and storing data. It provides data
-  to BLoC classes, either from the initial JSON asset or from the ObjectBox database.
+- **Repository:** Acts as an intermediary between the BLoC and the data sources.
 - **Datasource:** Responsible for fetching data, either from a JSON file (for initial loading) or
   from the ObjectBox database.
 - **Config:** Contains configuration for dependency injection and routes setup using Go Router.
-- **Shared:** Contains utility classes that are used throughout the project, including logging (
-  using Logger) and data manipulation helpers.
+- **Shared:** Contains utility classes that are used throughout the project, including
+  logging (using Logger) and data manipulation helpers.
