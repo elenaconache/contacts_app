@@ -3,15 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
-
 import 'package:contacts_app/entity/contact_entity.dart' as _i4;
 import 'package:contacts_app/model/contact.dart' as _i3;
 import 'package:contacts_app/model/json_contact.dart' as _i2;
-import 'package:contacts_app/repository/contacts_repository.dart' as _i5;
-import 'package:contacts_app/shared/log_service.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i8;
+import 'package:mockito/src/dummies.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -46,178 +42,6 @@ class _FakeContact_1 extends _i1.SmartFake implements _i3.Contact {
         );
 }
 
-class _FakeContactEntity_2 extends _i1.SmartFake implements _i4.ContactEntity {
-  _FakeContactEntity_2(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _Fake$ContactCopyWith_3<$Res> extends _i1.SmartFake
-    implements _i3.$ContactCopyWith<$Res> {
-  _Fake$ContactCopyWith_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-/// A class which mocks [ContactsRepository].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockContactsRepository extends _i1.Mock
-    implements _i5.ContactsRepository {
-  @override
-  _i6.Future<List<_i2.JsonContact>> getInitialContacts(
-          {required String? path}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getInitialContacts,
-          [],
-          {#path: path},
-        ),
-        returnValue:
-            _i6.Future<List<_i2.JsonContact>>.value(<_i2.JsonContact>[]),
-        returnValueForMissingStub:
-            _i6.Future<List<_i2.JsonContact>>.value(<_i2.JsonContact>[]),
-      ) as _i6.Future<List<_i2.JsonContact>>);
-
-  @override
-  _i6.Future<bool> hasLocalContacts() => (super.noSuchMethod(
-        Invocation.method(
-          #hasLocalContacts,
-          [],
-        ),
-        returnValue: _i6.Future<bool>.value(false),
-        returnValueForMissingStub: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
-
-  @override
-  _i6.Stream<List<_i4.ContactEntity>> watchLocalContacts() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #watchLocalContacts,
-          [],
-        ),
-        returnValue: _i6.Stream<List<_i4.ContactEntity>>.empty(),
-        returnValueForMissingStub: _i6.Stream<List<_i4.ContactEntity>>.empty(),
-      ) as _i6.Stream<List<_i4.ContactEntity>>);
-
-  @override
-  void saveContacts({required List<_i2.JsonContact>? contacts}) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #saveContacts,
-          [],
-          {#contacts: contacts},
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void saveContact({required _i2.JsonContact? contact}) => super.noSuchMethod(
-        Invocation.method(
-          #saveContact,
-          [],
-          {#contact: contact},
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void updateContact({required _i3.Contact? contact}) => super.noSuchMethod(
-        Invocation.method(
-          #updateContact,
-          [],
-          {#contact: contact},
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void deleteContact({required int? id}) => super.noSuchMethod(
-        Invocation.method(
-          #deleteContact,
-          [],
-          {#id: id},
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  _i3.Contact? getContact({required int? id}) => (super.noSuchMethod(
-        Invocation.method(
-          #getContact,
-          [],
-          {#id: id},
-        ),
-        returnValueForMissingStub: null,
-      ) as _i3.Contact?);
-}
-
-/// A class which mocks [LogService].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockLogService extends _i1.Mock implements _i7.LogService {
-  @override
-  void e({
-    required dynamic error,
-    required StackTrace? stackTrace,
-  }) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #e,
-          [],
-          {
-            #error: error,
-            #stackTrace: stackTrace,
-          },
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void d(String? message) => super.noSuchMethod(
-        Invocation.method(
-          #d,
-          [message],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void t(String? message) => super.noSuchMethod(
-        Invocation.method(
-          #t,
-          [message],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void w(String? message) => super.noSuchMethod(
-        Invocation.method(
-          #w,
-          [message],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void i(String? message) => super.noSuchMethod(
-        Invocation.method(
-          #i,
-          [message],
-        ),
-        returnValueForMissingStub: null,
-      );
-}
-
 /// A class which mocks [ContactEntity].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -241,11 +65,11 @@ class MockContactEntity extends _i1.Mock implements _i4.ContactEntity {
   @override
   String get contactId => (super.noSuchMethod(
         Invocation.getter(#contactId),
-        returnValue: _i8.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#contactId),
         ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
+        returnValueForMissingStub: _i5.dummyValue<String>(
           this,
           Invocation.getter(#contactId),
         ),
@@ -263,11 +87,11 @@ class MockContactEntity extends _i1.Mock implements _i4.ContactEntity {
   @override
   String get firstName => (super.noSuchMethod(
         Invocation.getter(#firstName),
-        returnValue: _i8.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#firstName),
         ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
+        returnValueForMissingStub: _i5.dummyValue<String>(
           this,
           Invocation.getter(#firstName),
         ),
@@ -285,11 +109,11 @@ class MockContactEntity extends _i1.Mock implements _i4.ContactEntity {
   @override
   String get lastName => (super.noSuchMethod(
         Invocation.getter(#lastName),
-        returnValue: _i8.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#lastName),
         ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
+        returnValueForMissingStub: _i5.dummyValue<String>(
           this,
           Invocation.getter(#lastName),
         ),
@@ -307,11 +131,11 @@ class MockContactEntity extends _i1.Mock implements _i4.ContactEntity {
   @override
   String get phoneNumber => (super.noSuchMethod(
         Invocation.getter(#phoneNumber),
-        returnValue: _i8.dummyValue<String>(
+        returnValue: _i5.dummyValue<String>(
           this,
           Invocation.getter(#phoneNumber),
         ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
+        returnValueForMissingStub: _i5.dummyValue<String>(
           this,
           Invocation.getter(#phoneNumber),
         ),
@@ -396,120 +220,4 @@ class MockContactEntity extends _i1.Mock implements _i4.ContactEntity {
           Invocation.getter(#contact),
         ),
       ) as _i3.Contact);
-}
-
-/// A class which mocks [Contact].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockContact extends _i1.Mock implements _i3.Contact {
-  @override
-  String get fullName => (super.noSuchMethod(
-        Invocation.getter(#fullName),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#fullName),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#fullName),
-        ),
-      ) as String);
-
-  @override
-  String get address => (super.noSuchMethod(
-        Invocation.getter(#address),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#address),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#address),
-        ),
-      ) as String);
-
-  @override
-  _i4.ContactEntity get entity => (super.noSuchMethod(
-        Invocation.getter(#entity),
-        returnValue: _FakeContactEntity_2(
-          this,
-          Invocation.getter(#entity),
-        ),
-        returnValueForMissingStub: _FakeContactEntity_2(
-          this,
-          Invocation.getter(#entity),
-        ),
-      ) as _i4.ContactEntity);
-
-  @override
-  int get entityId => (super.noSuchMethod(
-        Invocation.getter(#entityId),
-        returnValue: 0,
-        returnValueForMissingStub: 0,
-      ) as int);
-
-  @override
-  String get contactId => (super.noSuchMethod(
-        Invocation.getter(#contactId),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#contactId),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#contactId),
-        ),
-      ) as String);
-
-  @override
-  String get firstName => (super.noSuchMethod(
-        Invocation.getter(#firstName),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#firstName),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#firstName),
-        ),
-      ) as String);
-
-  @override
-  String get lastName => (super.noSuchMethod(
-        Invocation.getter(#lastName),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#lastName),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#lastName),
-        ),
-      ) as String);
-
-  @override
-  String get phoneNumber => (super.noSuchMethod(
-        Invocation.getter(#phoneNumber),
-        returnValue: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#phoneNumber),
-        ),
-        returnValueForMissingStub: _i8.dummyValue<String>(
-          this,
-          Invocation.getter(#phoneNumber),
-        ),
-      ) as String);
-
-  @override
-  _i3.$ContactCopyWith<_i3.Contact> get copyWith => (super.noSuchMethod(
-        Invocation.getter(#copyWith),
-        returnValue: _Fake$ContactCopyWith_3<_i3.Contact>(
-          this,
-          Invocation.getter(#copyWith),
-        ),
-        returnValueForMissingStub: _Fake$ContactCopyWith_3<_i3.Contact>(
-          this,
-          Invocation.getter(#copyWith),
-        ),
-      ) as _i3.$ContactCopyWith<_i3.Contact>);
 }

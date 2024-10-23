@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies();
+  await configureDependencies(environment: devEnvironment);
 
   Bloc.observer = getIt<AppBlocObserver>();
   final contactsRepository = ContactsRepository(

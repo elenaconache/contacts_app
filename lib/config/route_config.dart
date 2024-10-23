@@ -1,9 +1,14 @@
+import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
+import 'package:contacts_app/config/injector.dart';
 import 'package:contacts_app/config/routes.dart';
 import 'package:contacts_app/model/contact.dart';
+import 'package:contacts_app/repository/contacts_repository.dart';
+import 'package:contacts_app/shared/log_service.dart';
 import 'package:contacts_app/ui/add_contact_view.dart';
 import 'package:contacts_app/ui/contact_details_view.dart';
 import 'package:contacts_app/ui/contacts_list/contacts_list_view.dart';
 import 'package:contacts_app/ui/edit_contact_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -11,7 +16,12 @@ final router = GoRouter(
     GoRoute(
       path: Routes.contacts.path,
       name: Routes.contacts.name,
-      builder: (_, __) => const ContactsListView(),
+      builder: (context, __) => BlocProvider<ContactsListBloc>(
+          create: (context) => ContactsListBloc(
+                contactsRepository: context.read<ContactsRepository>(),
+                logService: getIt<LogService>(),
+              )..add(const ContactsListEvent.subscriptionRequested()),
+          child: const ContactsListView()),
       routes: [
         GoRoute(
           path: Routes.contactDetails.path,

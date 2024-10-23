@@ -4,6 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'injector.config.dart';
 
 final getIt = GetIt.instance;
+const devEnvironment = 'dev';
 
-@InjectableInit()
-Future<void> configureDependencies() => getIt.init();
+@InjectableInit(generateForDir: ['lib'], initializerName: 'init')
+Future<void> configureDependencies({String? environment}) =>
+    getIt.init(environment: environment);

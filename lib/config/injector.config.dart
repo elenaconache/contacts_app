@@ -19,6 +19,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
 
+const String _dev = 'dev';
+
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
   Future<_i174.GetIt> init({
@@ -39,7 +41,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i772.FormItemsHelper>(() => _i772.FormItemsHelper());
     gh.lazySingleton<_i430.LogService>(
-        () => _i430.LogService(gh<_i974.Logger>()));
+      () => _i430.LogService(gh<_i974.Logger>()),
+      registerFor: {_dev},
+    );
     gh.lazySingleton<_i425.AppBlocObserver>(
         () => _i425.AppBlocObserver(logService: gh<_i430.LogService>()));
     gh.lazySingleton<_i644.DatabaseHelper>(() => _i644.DatabaseHelper(
