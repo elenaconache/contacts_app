@@ -1,4 +1,3 @@
-import 'package:bloc/src/bloc.dart';
 import 'package:contacts_app/bloc/contacts_list/contacts_list_bloc.dart';
 import 'package:contacts_app/shared/log_service.dart';
 import 'package:get_it/get_it.dart';
