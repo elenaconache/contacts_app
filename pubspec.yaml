@@ -66,7 +66,7 @@ dev_dependencies:
   test: ^1.25.7
   bloc_test: ^9.1.7
   mockito: ^5.4.4
-  bdd_widget_test: ^1.7.4
+  bdd_widget_test: ^1.7.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
